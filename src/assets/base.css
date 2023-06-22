@@ -20,7 +20,7 @@
 }
 @font-face {
 	font-family: SplatoonBold;
-	src: url('fonts/SplatoonBold.otf');
+	src: url('/fonts/SplatoonBold.otf');
 }
 @font-face {
 	font-family: SplatoonBubble;
