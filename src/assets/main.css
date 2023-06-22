@@ -1,0 +1,19 @@
+@import './base.css';
+
+#app {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+
+	font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	transition: 0.5s;
+}
+
+a:hover {
+	filter: drop-shadow(0 0 0.3rem rgb(196, 196, 196));
+}

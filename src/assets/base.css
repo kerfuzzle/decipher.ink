@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: Splatfont;
+	src: url('fonts/Splatfont.ttf');
+}
+@font-face {
+	font-family: Splatfont2;
+	src: url('fonts/Splatfont2.ttf');
+}
+@font-face {
+	font-family: SplatoonAlterna;
+	src: url('fonts/SplatoonAlterna.otf');
+}
+@font-face {
+	font-family: SplatoonBold;
+	src: url('fonts/SplatoonBold.otf');
+}
+@font-face {
+	font-family: SplatoonBubble;
+	src: url('fonts/SplatoonBubble.otf');
+}
+@font-face {
+	font-family: SplatoonHalfmoon;
+	src: url('fonts/SplatoonHalfmoon.otf');
+}
+@font-face {
+	font-family: SplatoonRound;
+	src: url('fonts/SplatoonRound.otf');
+}
+@font-face {
+	font-family: SplatoonRunic;
+	src: url('fonts/SplatoonRunic.otf');
+}
+@font-face {
+	font-family: SplatoonSerif;
+	src: url('fonts/SplatoonSerif.otf');
+}
+@font-face {
+	font-family: SplatoonSign;
+	src: url('fonts/SplatoonSign.otf');
+}
+@font-face {
+	font-family: SplatoonSquare;
+	src: url('fonts/SplatoonSquare.otf');
+}
+
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	color: #ffffff;
+	background-image: url('background.jpg');
+	transition: color 0.5s, background-color 0.5s;
+	line-height: 1.6;
+	font-family: Splatfont2;
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
