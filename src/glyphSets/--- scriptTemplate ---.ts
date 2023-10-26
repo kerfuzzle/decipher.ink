@@ -97,15 +97,15 @@ const TemplateScript: GlyphSet = {
 			mappedCharacters: ['W'],
 		},
 		{
-			id: 22,
-			mappedCharacters: ['W'],
+			id: 23,
+			mappedCharacters: ['X'],
 		},
 		{
-			id: 22,
+			id: 24,
 			mappedCharacters: ['Y'],
 		},
 		{
-			id: 22,
+			id: 25,
 			mappedCharacters: ['Z'],
 		},
 	],
