@@ -45,7 +45,7 @@ input {
 	background-image: url('/respawnIconBackground.png');
 	background-size: 150px;
 	border: 10px solid rgb(151, 151, 151);
-	border-top: 30px solid rgb(151, 151, 151);
+	border-top: 35px solid rgb(151, 151, 151);
 	border-radius: 5px;
 }
 
@@ -67,6 +67,10 @@ input {
 	height: min-content;
 	display: flex;
 	justify-content: center;
+}
+
+.missing-character {
+	color: red;
 }
 
 .blinking-cursor {

@@ -1,11 +1,33 @@
 <script setup lang="ts">
-import TranslationArea from './components/TranslationArea.vue';
+import MainNavbar from './components/MainNavbar.vue';
+import ScriptToEnglish from './views/ScriptToEnglish.vue';
+import AboutPage from './views/AboutPage.vue';
+import { computed, ref } from 'vue';
+
+const routes: {[index: string]: any} = {
+	'/':  ScriptToEnglish,
+	'/about': AboutPage,
+};
+
+const currentPath = ref(window.location.hash);
+window.addEventListener('hashchange', () => {
+	currentPath.value = window.location.hash;
+});
+
+const currentView = computed(() => {
+	return routes[currentPath.value.slice(1) || '/'] || ScriptToEnglish;
+});
 </script>
 
 <template>
-	<TranslationArea/>
-	<div class="footer">
-		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
+	<div id="app">
+		<MainNavbar :active-path="currentPath.slice(1) || '/'"/>
+		<div>
+			<component :is="currentView"/>
+		</div>
+		<div class="footer">
+			This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
+		</div>
 	</div>
 </template>
 
@@ -17,29 +39,5 @@ import TranslationArea from './components/TranslationArea.vue';
 	width: 100%;
 	text-align: center;
 	color: grey;
-}
-.title {
-	font-size: 5vmax;
-	font-family: Splatfont2;
-	text-align: center;
-	height: 150px
-}
-
-.titleLetter {
-	display: inline;
-}
-.description {
-	margin: 15px;
-	font-size: 1.5vmax
-}
-
-.subDescription {
-	font-size: 15px;
-}
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
 }
 </style>

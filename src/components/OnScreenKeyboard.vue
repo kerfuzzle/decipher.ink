@@ -61,6 +61,7 @@ button {
 	color: black;
 	cursor: pointer;
 	min-width: 50px;
+	min-height: 80px;
 
 	-webkit-transition: all 200ms linear;
 	-moz-transition: all 200ms linear;

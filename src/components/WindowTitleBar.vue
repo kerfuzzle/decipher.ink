@@ -17,9 +17,11 @@ const selectedScriptId = ref(0);
 <template>
 <div class="titleBar">
 	<div class="windowTitleLeft">
-		<select v-if="!props.disableGlyphsetSelector" v-model="selectedScriptId" @change="emit('updateGlpyhset', selectedScriptId)">
-			<option v-for="[key, value] of glyphSets" :key="key" :value="key">{{ value.name }}</option>
-		</select>
+		<div v-if="!props.disableGlyphsetSelector" class="select">
+			<select v-model="selectedScriptId" @change="emit('updateGlpyhset', selectedScriptId)">
+				<option v-for="[key, value] of glyphSets" :key="key" :value="key">{{ value.name }}</option>
+			</select>
+		</div>
 		<span v-else>{{ props.title }}</span> <span class="translatedTitle">{{ props.title }}</span>
 	</div>
 	<div class="windowTitleRight">&#xE067; &#xE063; &#xE066;</div>
@@ -28,13 +30,33 @@ const selectedScriptId = ref(0);
 
 <style scoped>
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 select {
 	font-family: Splatfont2;
+	background-color: transparent;
 	border: none;
+	padding: 0 0 0 0;
+	margin: 0;
+	appearance: none;
+	height: min-content;
+	width: min-content;
+	cursor: inherit;
+	line-height: inherit;
+	font-size: inherit;
 	outline: none;
 }
+
+.select {
+	display: inline;
+}
+
 option {
-	font-family: Splatfont2;
+	font-family: Splatfont2, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .windowTitleLeft, .windowTitleRight {

@@ -48,9 +48,13 @@ function updateGlpyhset(id: number) {
 </script>
 
 <template>
-	<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true'/>
-	<TextArea :text="currentText" title="English" font="Splatfont2"/>
-	<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset"/>
-	<TextArea :text="currentText" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
+	<div>
+		<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true'/>
+		<TextArea :text="currentText" title="English" font="Splatfont2"/>
+	</div>
+	<div>
+		<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset"/>
+		<TextArea :text="currentText" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
+	</div>
 	<OnScreenKeyboard :glyphSet="selectedGlpyhset" @input="registerInput" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
 </template>
