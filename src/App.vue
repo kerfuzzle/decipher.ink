@@ -20,14 +20,12 @@ const currentView = computed(() => {
 </script>
 
 <template>
-	<div id="app">
-		<MainNavbar :active-path="currentPath.slice(1) || '/'"/>
-		<div>
-			<component :is="currentView"/>
-		</div>
-		<div class="footer">
-			This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
-		</div>
+	<MainNavbar :active-path="currentPath.slice(1) || '/'"/>
+	<div>
+		<component :is="currentView"/>
+	</div>
+	<div class="footer">
+		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
 	</div>
 </template>
 
