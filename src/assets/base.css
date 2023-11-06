@@ -20,35 +20,35 @@
 }
 @font-face {
 	font-family: SplatoonBold;
-	src: url('/fonts/SplatoonBold.otf');
+	src: url('/fonts/SplatoonBold.ttf');
 }
 @font-face {
 	font-family: SplatoonBubble;
-	src: url('/fonts/SplatoonBubble.otf');
+	src: url('/fonts/SplatoonBubble.ttf');
 }
 @font-face {
 	font-family: SplatoonHalfmoon;
-	src: url('/fonts/SplatoonHalfmoon.otf');
+	src: url('/fonts/SplatoonHalfmoon.ttf');
 }
 @font-face {
 	font-family: SplatoonRound;
-	src: url('/fonts/SplatoonRound.otf');
+	src: url('/fonts/SplatoonRound.ttf');
 }
 @font-face {
 	font-family: SplatoonRunic;
-	src: url('/fonts/SplatoonRunic.otf');
+	src: url('/fonts/SplatoonRunic.ttf');
 }
 @font-face {
 	font-family: SplatoonSerif;
-	src: url('/fonts/SplatoonSerif.otf');
+	src: url('/fonts/SplatoonSerif.ttf');
 }
 @font-face {
 	font-family: SplatoonSign;
-	src: url('/fonts/SplatoonSign.otf');
+	src: url('/fonts/SplatoonSign.ttf');
 }
 @font-face {
 	font-family: SplatoonSquare;
-	src: url('/fonts/SplatoonSquare.otf');
+	src: url('/fonts/SplatoonSquare.ttf');
 }
 
 
