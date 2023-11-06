@@ -2,10 +2,12 @@
 import MainNavbar from './components/MainNavbar.vue';
 import ScriptToEnglish from './views/ScriptToEnglish.vue';
 import AboutPage from './views/AboutPage.vue';
+import FontDownloadPage from './views/FontDownloadPage.vue';
 import { computed, ref } from 'vue';
 
 const routes: {[index: string]: any} = {
 	'/':  ScriptToEnglish,
+	'/fonts': FontDownloadPage,
 	'/about': AboutPage,
 };
 

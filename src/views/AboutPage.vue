@@ -6,6 +6,7 @@ import IconGitHub from '../assets/icons/IconGitHub.vue';
 import IconGit from '../assets/icons/IconGit.vue';
 import IconTumblr from '../assets/icons/IconTumblr.vue';
 import IconBlogger from '../assets/icons/IconBlogger.vue';
+import IconDiscord from '../assets/icons/IconDiscord.vue';
 import AnimatedTitle from '../components/AnimatedTitle.vue';
 </script>
 
@@ -28,6 +29,9 @@ import AnimatedTitle from '../components/AnimatedTitle.vue';
 		</SocialsItem>
 		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="repository">
 			<IconGit/>
+		</SocialsItem>
+		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="repository">
+			<IconDiscord/>
 		</SocialsItem>
 	</SocialsBar>
 	<div class = "container">

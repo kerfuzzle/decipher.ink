@@ -14,7 +14,7 @@ withDefaults(defineProps<{
 		<AnimatedTitle class="animated-title"/>
 		<a href="#/" :class="activePath == '/' ? 'active' : ''">Script → English</a>
 		<a>English → Script</a>
-		<a>Fonts</a>
+		<a href="#/fonts" :class="activePath == '/fonts' ? 'active' : ''">Fonts</a>
 		<a href="#/about" :class="activePath == '/about' ? 'active' : ''">About</a>
 	</div>
 </template>
