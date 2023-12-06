@@ -8,6 +8,7 @@ import IconTumblr from '../assets/icons/IconTumblr.vue';
 import IconBlogger from '../assets/icons/IconBlogger.vue';
 import IconDiscord from '../assets/icons/IconDiscord.vue';
 import AnimatedTitle from '../components/AnimatedTitle.vue';
+import SLICard from '../components/SLICard.vue';
 </script>
 
 <template>
@@ -17,12 +18,15 @@ import AnimatedTitle from '../components/AnimatedTitle.vue';
 			A site for translating Splatoon scripts.
 		</div>
 		<div class="description subDescription">
-			Follow development here
+			Follow development & me here
 		</div>
 	</div>
 	<SocialsBar>
 		<SocialsItem url="https://twitter.com/kerfuzzle_" name="@kerfuzzle_">
 			<IconTwitter/>
+		</SocialsItem>
+		<SocialsItem url="https://discord.com/users/569822515401195520" name="@kerfuzzle">
+			<IconDiscord/>
 		</SocialsItem>
 		<SocialsItem url="https://github.com/kerfuzzle" name="kerfuzzle">
 			<IconGitHub/>
@@ -30,13 +34,10 @@ import AnimatedTitle from '../components/AnimatedTitle.vue';
 		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="repository">
 			<IconGit/>
 		</SocialsItem>
-		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="repository">
-			<IconDiscord/>
-		</SocialsItem>
 	</SocialsBar>
 	<div class = "container">
 		<div class="description subDescription">
-			The cool people that deciphered these scripts
+			The cool people that deciphered and contributed to these scripts
 		</div>
 		<SocialsBar>
 			<SocialsItem url="https://twitter.com/ardnin_" name="@ardnin_">
@@ -59,12 +60,18 @@ import AnimatedTitle from '../components/AnimatedTitle.vue';
 			</SocialsItem>
 		</SocialsBar>
 	</div>
-	<div class="footer">
-		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
-	</div>
+	<SLICard/>
 </template>
 
 <style scoped>
+a:hover {
+	filter: drop-shadow(0 0 0.3rem rgb(196, 196, 196));
+}
+
+SLICard {
+	margin-top: 50px;
+}
+
 .footer {
 	position: fixed;
 	left: 0px;
@@ -76,6 +83,7 @@ import AnimatedTitle from '../components/AnimatedTitle.vue';
 
 .animated-title {
 	font-size: 6vmax;
+	min-height: 11vmax;
 }
 
 .description {

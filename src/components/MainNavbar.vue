@@ -50,7 +50,7 @@ withDefaults(defineProps<{
 
 a.active {
 	color: white;
-	padding: 0px 6px;
+	padding: 0px 10px;
 	border: 3px solid transparent;
 	border-radius: 20px;
 	background-color: rgba(255, 255, 255, .15);

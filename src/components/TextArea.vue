@@ -50,7 +50,7 @@ input {
 }
 
 .caret, .character {
-	font-family: v-bind('props.font');
+	font-family: v-bind('props.font'), Splatfont2;;
 }
 
 .character {

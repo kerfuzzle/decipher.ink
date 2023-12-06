@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import FontCard from '@/components/FontCard.vue';
+import { glyphSets } from '@/glyphSets/glyphSets';
 </script>
 
 <template>
 	<div class="container">
-		<FontCard/>
-		<FontCard/>
-		<FontCard/>
-		<FontCard/>
-		<FontCard/>
-		<FontCard/>
-		<FontCard/>
+		<FontCard v-for="[key, value] of glyphSets" :key="key" :glyph-set="value"/>
 	</div>
 </template>
 

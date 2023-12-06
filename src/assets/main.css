@@ -13,7 +13,3 @@ a {
 	color: inherit;
 	transition: 0.5s;
 }
-
-a:hover {
-	filter: drop-shadow(0 0 0.3rem rgb(196, 196, 196));
-}

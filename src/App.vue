@@ -33,7 +33,7 @@ const currentView = computed(() => {
 
 <style scoped>
 .footer {
-	position: fixed;
+	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	width: 100%;

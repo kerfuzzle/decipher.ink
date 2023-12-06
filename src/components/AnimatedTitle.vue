@@ -38,7 +38,7 @@ function translateTitle(intoCipher: boolean) {
 
 <template>
 	<div class="title" @mouseenter="translateTitle(true)" @mouseleave="translateTitle(false)">
-		<div class="titleLetter" v-for="letter in titleLetters" :key="letter.id" :style="`font-family: ${letter.font}`">
+		<div class="titleLetter" v-for="letter in titleLetters" :key="letter.id" :style="`font-family: ${letter.font}, Splatfont2;`">
 			{{letter.char}}
 		</div>
 	</div>

@@ -74,6 +74,6 @@ option {
 
 .translatedTitle {
 	color: rgb(109, 109, 109);
-	font-family: v-bind('props.font');
+	font-family: v-bind('props.font'), Splatfont2;;
 }
 </style>
