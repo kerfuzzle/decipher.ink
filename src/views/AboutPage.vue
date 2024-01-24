@@ -37,7 +37,7 @@ import SLICard from '../components/SLICard.vue';
 	</SocialsBar>
 	<div class = "container">
 		<div class="description subDescription">
-			The cool people that deciphered and contributed to these scripts
+			The cool people that deciphered and contributed to finding these scripts
 		</div>
 		<SocialsBar>
 			<SocialsItem url="https://twitter.com/ardnin_" name="@ardnin_">
