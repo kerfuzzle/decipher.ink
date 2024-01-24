@@ -21,8 +21,10 @@ const selectedScriptId = ref(0);
 			<select v-model="selectedScriptId" @change="emit('updateGlpyhset', selectedScriptId)">
 				<option v-for="[key, value] of glyphSets" :key="key" :value="key">{{ value.name }}</option>
 			</select>
+			&#9660;
 		</div>
-		<span v-else>{{ props.title }}</span> <span class="translatedTitle">{{ props.title }}</span>
+		<span v-else>{{ props.title }}</span>
+		<span class="translatedTitle">{{ props.title }}</span>
 	</div>
 	<div class="windowTitleRight">&#xE067; &#xE063; &#xE066;</div>
 </div>
@@ -73,6 +75,7 @@ option {
 }
 
 .translatedTitle {
+	margin-left: 15px;
 	color: rgb(109, 109, 109);
 	font-family: v-bind('props.font'), Splatfont2;;
 }
