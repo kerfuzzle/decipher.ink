@@ -27,7 +27,7 @@ const currentView = computed(() => {
 		<component :is="currentView"/>
 	</div>
 	<div class="footer">
-		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
+		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners. <a href="https://github.com/kerfuzzle/decipher.ink/issues">Report a bug</a>
 	</div>
 </template>
 
@@ -39,5 +39,9 @@ const currentView = computed(() => {
 	width: 100%;
 	text-align: center;
 	color: grey;
+}
+
+a {
+	text-decoration: underline;
 }
 </style>
