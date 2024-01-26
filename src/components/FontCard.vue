@@ -4,15 +4,23 @@ import type { GlyphSet } from '@/typings/glyphs';
 const props = defineProps<{
 	glyphSet: GlyphSet;
 }>();
+
+const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharacters.length > 1);
 </script>
 
 <template>
 	<div class="container">
 		<div class="title">{{ glyphSet.name }}</div>
-		<div class="preview">{{ glyphSet.name }}</div>
+		<div class="preview glpyhFont">{{ glyphSet.name }}</div>
 		<div class="description">{{ glyphSet.description }}</div>
-		<div>
-			Overlapping Characters: A &#x21D4; B &#x21D4; C
+		<div class="container frostedBackground" v-if="overlappingSets.length">
+			Overlapping Characters:
+			<span class="set" v-for="(set, index) in overlappingSets" :key="index">
+				<span class="glpyhFont">{{ set.mappedCharacters[0] }}</span> → {{ set.mappedCharacters.join(', ') }}
+			</span>
+		</div>
+		<div v-else class="container frostedBackground">
+			Overlapping Characters: None!
 		</div>
 		<div class="buttonGroup">
 			<a class="download" href="https://github.com/kerfuzzle" target="_blank" rel="noopener noreferrer">Download Font <span class="fileFormat">.tff</span></a>
@@ -29,14 +37,28 @@ const props = defineProps<{
 	display: flex;
 	width: 40vw;
 	background: url('/respawnIconBackground.png');
-	background-size: 150px;
+	background-size: 225px;
 	margin: 15px;
 	padding: 15px;
-	border: 5px solid rgb(151, 151, 151);
+	border: 7px solid rgb(151, 151, 151);
 	border-radius: 15px;
 	-webkit-transition: 250ms linear;
 	-ms-transition: 250ms linear;
 	transition: 250ms linear;
+}
+
+.frostedBackground {
+	background: rgba(96, 96, 96, 0.15);
+	border: none;
+	backdrop-filter: blur(3px);
+}
+
+.glpyhFont {
+	font-family: v-bind('glyphSet.font'), Splatfont2;
+}
+
+.set {
+	padding: 0px 10px;
 }
 
 .title {
@@ -47,7 +69,6 @@ const props = defineProps<{
 .preview {
 	margin-left: auto;
 	color: rgb(109, 109, 109);
-	font-family: v-bind('glyphSet.font'), Splatfont2;
 	font-size: 40px;
 }
 .buttonGroup, .description {
@@ -56,16 +77,21 @@ const props = defineProps<{
 
 .download {
 	align-self: flex-end;
-	padding: 5px;
-	border: 4px solid rgb(151, 151, 151);
-	border-radius: 5px;
-	margin: 5px 5px;
+	padding: 10px;
+	border-radius: 10px;
+	margin: 5px 10px;
+	background: rgb(58, 12, 205);
+	color: white;
+}
+
+.download:hover {
+	background: rgb(58, 12, 205, 0.6);
+	backdrop-filter: blur(2px);
 }
 
 .fileFormat {
-	padding: 2px 4px;
-	background-color: rgb(151, 151, 151);
-	backdrop-filter: blur(5px);
+	padding: 1px 4px;
+	background-color: rgb(255, 255, 255, 0.2);
 	border-radius: 5px;
 	margin-left: 10px;
 }
