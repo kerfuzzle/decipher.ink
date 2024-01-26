@@ -31,6 +31,7 @@ withDefaults(defineProps<{
 	background-color: rgba(255, 255, 255, .15);
 	backdrop-filter: blur(5px);
 	min-height: 70px;
+	z-index: 5;
 }
 
 .container > * {
@@ -53,6 +54,10 @@ a.active {
 	padding: 0px 10px;
 	border: 3px solid transparent;
 	border-radius: 20px;
-	background-color: rgba(255, 255, 255, .15);
+	background-color: rgb(58, 12, 205)
+}
+
+a:hover:not(.active) {
+	color: rgb(208, 190, 8);
 }
 </style>
