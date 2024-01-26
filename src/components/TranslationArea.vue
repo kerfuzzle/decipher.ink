@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import OnScreenKeyboard from './OnScreenKeyboard.vue';
 import TextArea from './TextArea.vue';
 import WindowTitleBar from './WindowTitleBar.vue';
-import type { Glyph } from '../typings/glyphs';
+import type { Glyph, GlyphSet } from '../typings/glyphs';
 import { glyphSets } from '@/glyphSets/glyphSets';
 import { SquareScript } from '@/glyphSets/squareScript';
+import { memoize } from '../utils/memoize';
 enum ArrowDirections {
 	Left, Right
 }
@@ -13,9 +14,31 @@ enum ArrowDirections {
 const currentText = ref('');
 const caretPosition = ref(0);
 const selectedGlpyhset = ref(SquareScript);
+const currentPermutations = computed(() => {
+	return recursePermutations(currentText.value, selectedGlpyhset.value);
+});
+
+
+const recursePermutations = memoize((text: string, glpyhSet: GlyphSet): string[] => {
+	const newPermutations: string[] = [];
+	const glpyh = glpyhSet.glyphs.find(g => g.mappedCharacters.includes(text.substring(0, 1)));
+	const permutations: string[] = glpyh?.mappedCharacters.map(newChar => replaceAt(text, 0, newChar)) || [];
+	if (text.length === 1) return permutations;
+	permutations.forEach(permutation => {
+		recursePermutations(permutation.substring(1), glpyhSet).forEach(newPermutation => {
+			newPermutations.push(permutation.substring(0, 1) + newPermutation);
+		});
+	});
+	return newPermutations;
+});
+
+function replaceAt(string: string, index: number, replacement: string) {
+	return string.substring(0, index) + replacement + string.substring(index + replacement.length);
+}
 
 function registerInput(glyph: Glyph) {
 	currentText.value = currentText.value.slice(0, caretPosition.value) + glyph.mappedCharacters[0] + currentText.value.slice(caretPosition.value);
+	// console.log(currentPermutations.value);
 	moveCaret(1);
 }
 
@@ -23,6 +46,11 @@ function moveCaret(positionChange: number) {
 	caretPosition.value += positionChange;
 	if (caretPosition.value < 0) caretPosition.value = 0;
 	else if (caretPosition.value > currentText.value.length) caretPosition.value = currentText.value.length;
+}
+
+function registerSpace() {
+	currentText.value = currentText.value.slice(0, caretPosition.value) + ' ' + currentText.value.slice(caretPosition.value);
+	moveCaret(1);
 }
 
 function registerBackspace() {
@@ -56,5 +84,5 @@ function updateGlpyhset(id: number) {
 		<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset"/>
 		<TextArea :text="currentText" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
 	</div>
-	<OnScreenKeyboard :glyphSet="selectedGlpyhset" @input="registerInput" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
+	<OnScreenKeyboard :glyphSet="selectedGlpyhset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
 </template>
