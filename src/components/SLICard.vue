@@ -3,7 +3,7 @@
 
 <template>
 	<a href="https://splatoonlore.ink" class="card">
-		<img src="SLILogo.png"/>
+		<img src="/SLILogo.png"/>
 		<div class="title">
 			Partnered with <span class="SLITitle">Splatoon Lore Ink.</span>
 			<div class="subtitle">
