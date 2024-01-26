@@ -10,6 +10,7 @@ const props = defineProps<{
 const emit = defineEmits<{
 	input: [glpyh: Glyph],
 	backspace: [],
+	space: [],
 	delete: [],
 	arrow: [direction: ArrowDirections],
 }>();
@@ -30,7 +31,8 @@ self.addEventListener('keydown', function(event) {
 		<button v-for="glyph in props.glyphSet.glyphs" :key="glyph.id" @click="emit('input', glyph)">
 			{{ glyph.mappedCharacters[0] }}
 		</button>
-		<button @click="emit('backspace')" class="specialKey backspace">
+		<button @click="emit('space')" class="specialKey spacebar"/>
+		<button @click="emit('backspace')" class="specialKey">
 			《
 		</button>
 		<button @click="emit('arrow', ArrowDirections.Left)" class="specialKey">
@@ -76,9 +78,12 @@ button:hover {
 
 .specialKey {
 	font-family: Splatfont2;
+	max-width: 125px;
+	flex-grow: 1;
 }
 
-.backspace {
-	margin-left: 30px;
+.spacebar {
+	flex-grow: 2;
+	max-width: 200px
 }
 </style>
