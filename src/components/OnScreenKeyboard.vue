@@ -23,6 +23,7 @@ self.addEventListener('keydown', function(event) {
 	else if (key === 'Delete') emit('delete');
 	else if (key === 'ArrowLeft') emit('arrow', ArrowDirections.Left);
 	else if (key === 'ArrowRight') emit('arrow', ArrowDirections.Right);
+	else if (key === ' ') emit('space');
 });
 </script>
 
