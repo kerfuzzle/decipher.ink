@@ -15,7 +15,9 @@ const currentText = ref('');
 const caretPosition = ref(0);
 const selectedGlpyhset = ref(SquareScript);
 const currentPermutations = computed(() => {
-	return recursePermutations(currentText.value, selectedGlpyhset.value);
+	return currentText.value.split(' ').map(word => {
+		return recursePermutations(word, selectedGlpyhset.value);
+	});
 });
 
 
@@ -38,7 +40,8 @@ function replaceAt(string: string, index: number, replacement: string) {
 
 function registerInput(glyph: Glyph) {
 	currentText.value = currentText.value.slice(0, caretPosition.value) + glyph.mappedCharacters[0] + currentText.value.slice(caretPosition.value);
-	// console.log(currentPermutations.value);
+	currentPermutations.effect.run();
+	console.log(currentPermutations.value);
 	moveCaret(1);
 }
 
@@ -65,6 +68,7 @@ function registerDelete() {
 }
 
 function registerArrow(direction: ArrowDirections) {
+	console.log(currentPermutations.value);
 	if (direction === ArrowDirections.Left) moveCaret(-1);
 	else if (direction === ArrowDirections.Right) moveCaret(1);
 }
@@ -78,11 +82,11 @@ function updateGlpyhset(id: number) {
 <template>
 	<div>
 		<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true'/>
-		<TextArea :text="currentText" title="English" font="Splatfont2"/>
+		<TextArea :words="currentPermutations" title="English" font="Splatfont2"/>
 	</div>
 	<div>
 		<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset"/>
-		<TextArea :text="currentText" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
+		<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
 	</div>
 	<OnScreenKeyboard :glyphSet="selectedGlpyhset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
 </template>

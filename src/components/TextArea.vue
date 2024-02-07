@@ -1,28 +1,16 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import TranslatedWord from './TranslatedWord.vue';
 
 const props = defineProps<{
-	text: string;
+	words: string[][];
 	font: string;
 	caretPosition?: number,
 }>();
-
-const content = computed(() => {
-	const charArray = props.text.split('').map(char => { return { char: char, id: 0, isCaret: false };});
-	if (props.caretPosition !== undefined && props.text.length > 0) charArray.splice(props.caretPosition, 0, { char: '|', id: 0, isCaret: true });
-	charArray.forEach((item, index) => item.id = index);
-	return charArray;
-});
 </script>
 
 <template>
 	<div class="textArea">
-		<div v-for="char in content" :key="char.id" :class="char.isCaret ? 'caret' : 'character'">
-			<div v-if="char.isCaret" class="blinking-cursor"/>
-			<div v-else>
-				{{ char.char }}
-			</div>
-		</div>
+		<TranslatedWord v-for="(word, index) in words" :key="index" :caret-position="0" :permutations="word"/>
 	</div>
 </template>
 
@@ -33,6 +21,7 @@ input {
 }
 
 .textArea {
+	font-family: v-bind('props.font'), Splatfont2;
 	display: flex;
 	font-size: 50px;
 	justify-content: center;
@@ -43,75 +32,17 @@ input {
 	min-height: 20vh;
 	color: black;
 	background-image: url('/respawnIconBackground.png');
-	background-size: 150px;
+	background-size: 225px;
 	border: 10px solid rgb(151, 151, 151);
 	border-top: 35px solid rgb(151, 151, 151);
 	border-radius: 5px;
 }
 
-.caret, .character {
-	font-family: v-bind('props.font'), Splatfont2;;
+.textArea > * {
+	margin-right: 15px;
 }
 
-.character {
-	display: inline;
-	width: min-content;
-	height: min-content;
-	line-height: 100%;
-	margin: 2px;
-}
-
-.caret {
-	display: inline;
-	width: min-content;
-	height: min-content;
-	display: flex;
-	justify-content: center;
-}
-
-.missing-character {
-	color: red;
-}
-
-.blinking-cursor {
-	margin: 7px -2px;
-	width: 2px;
-	height: 40px;
-	background-color: black;
-	animation: blink 1s step-end infinite;
-	-webkit-animation: blink 1s step-end infinite;
-	-moz-animation: blink 1s step-end infinite;
-	-ms-animation: blink 1s step-end infinite;
-	-o-animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-	50% {
-		opacity: 0;
-	}
-}
-
-@-moz-keyframes blink {
-	50% {
-		opacity: 0;
-	}
-}
-
-@-webkit-keyframes blink {
-	50% {
-		opacity: 0;
-	}
-}
-
-@-ms-keyframes blink {
-	50% {
-		opacity: 0;
-	}
-}
-
-@-o-keyframes blink {
-	50% {
-		opacity: 0;
-	}
+.textArea > *:last-child {
+	margin-right: 0px;
 }
 </style>
