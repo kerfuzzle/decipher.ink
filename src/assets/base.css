@@ -59,7 +59,8 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	color: #ffffff;
-	background-image: url('/background.jpg');
+	background: no-repeat url('/background.jpg');
+	background-size: cover;
 	transition: color 0.5s, background-color 0.5s;
 	line-height: 1.6;
 	font-family: Splatfont2;
