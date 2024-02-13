@@ -1,31 +1,44 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 
+defineExpose({
+	getCurrentSelectedPermutation,
+});
 const props = defineProps<{
 	caretPosition: number | undefined;
 	permutations: string[];
 }>();
-const selectedPermutationIndex = ref(0);
 
-watch(props.permutations, () => {
+const selectedPermutationIndex = ref(0);
+const menuOpen = ref(false);
+const selectedPermutation = computed(() => {
+	if (!props.permutations.length) return;
+	// console.log(selectedPermutationIndex.value, props.permutations);
+	const charArray = props.permutations[selectedPermutationIndex.value].split('');
+	if (props.caretPosition) charArray.splice(props.caretPosition, 0, '|');
+	return charArray;
+});
+
+watch(props, () => {
 	selectedPermutationIndex.value = 0;
 });
 
-const selectedPermutation = computed(() => {
-	if (!props.permutations.length) return;
-	const charArray = props.permutations[selectedPermutationIndex.value].split('');
-	if (props.caretPosition) charArray.splice(props.caretPosition, 0, '|');
-	console.log(charArray);
-	return charArray;
-});
+function getCurrentSelectedPermutation() {
+	return selectedPermutation.value?.join('');
+}
 </script>
 
 <template>
-	<div class="word">
+	<div class="word" @click="menuOpen = true" @mouseleave="menuOpen = false">
 		<div v-for="(char, index) in selectedPermutation" :key="index" :class="char === '|' ? 'caret' : 'character'">
 			<div v-if="char === '|'" class="blinking-cursor"/>
 			<div v-else>
 				{{ char }}
+			</div>
+		</div>
+		<div class="permutation-list" v-show="menuOpen">
+			<div v-for="(permutation, index) in permutations" :key="index" @click="selectedPermutationIndex = index" class="permutation">
+				{{ permutation }}
 			</div>
 		</div>
 	</div>
@@ -47,6 +60,17 @@ const selectedPermutation = computed(() => {
 	backdrop-filter: blur(3px);
 }
 
+.permutation-list {
+	position: absolute;
+	padding: 3px;
+	background: rgba(54, 54, 54, 0.15);
+	border-radius: 3px;
+}
+
+.permutation {
+	cursor: pointer;
+}
+
 .character {
 	display: inline;
 	width: min-content;
@@ -64,6 +88,10 @@ const selectedPermutation = computed(() => {
 }
 
 .missing-character {
+	color: red;
+}
+
+.multiGlpyh {
 	color: red;
 }
 

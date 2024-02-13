@@ -14,6 +14,7 @@ enum ArrowDirections {
 const currentText = ref('');
 const caretPosition = ref(0);
 const selectedGlpyhset = ref(SquareScript);
+const englishTextArea = ref<InstanceType<typeof TextArea> | null>(null);
 const currentPermutations = computed(() => {
 	return currentText.value.split(' ').map(word => {
 		return recursePermutations(word, selectedGlpyhset.value);
@@ -41,7 +42,6 @@ function replaceAt(string: string, index: number, replacement: string) {
 function registerInput(glyph: Glyph) {
 	currentText.value = currentText.value.slice(0, caretPosition.value) + glyph.mappedCharacters[0] + currentText.value.slice(caretPosition.value);
 	currentPermutations.effect.run();
-	console.log(currentPermutations.value);
 	moveCaret(1);
 }
 
@@ -68,7 +68,6 @@ function registerDelete() {
 }
 
 function registerArrow(direction: ArrowDirections) {
-	console.log(currentPermutations.value);
 	if (direction === ArrowDirections.Left) moveCaret(-1);
 	else if (direction === ArrowDirections.Right) moveCaret(1);
 }
@@ -77,15 +76,20 @@ function updateGlpyhset(id: number) {
 	selectedGlpyhset.value = glyphSets.get(id) || SquareScript;
 }
 
+function copy() {
+	const selectedText = englishTextArea.value?.getCurrentText();
+	if (selectedText) navigator.clipboard.writeText(selectedText);
+}
+
 </script>
 
 <template>
 	<div>
-		<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true'/>
-		<TextArea :words="currentPermutations" title="English" font="Splatfont2"/>
+		<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy"/>
+		<TextArea :words="currentPermutations" title="English" font="Splatfont2" ref="englishTextArea"/>
 	</div>
 	<div>
-		<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset"/>
+		<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset" :disable-copy-button="true"/>
 		<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
 	</div>
 	<OnScreenKeyboard :glyphSet="selectedGlpyhset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>

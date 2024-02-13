@@ -1,16 +1,26 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import TranslatedWord from './TranslatedWord.vue';
 
+defineExpose({
+	getCurrentText,
+});
 const props = defineProps<{
 	words: string[][];
 	font: string;
 	caretPosition?: number,
 }>();
+
+const translatedWords = ref<InstanceType<typeof TranslatedWord>[] | null>(null);
+
+function getCurrentText() {
+	return translatedWords.value?.map(t => t.getCurrentSelectedPermutation()).join(' ');
+}
 </script>
 
 <template>
 	<div class="textArea">
-		<TranslatedWord v-for="(word, index) in words" :key="index" :caret-position="0" :permutations="word"/>
+		<TranslatedWord v-for="(word, index) in words" :key="index" :caret-position="0" :permutations="word" ref="translatedWords"/>
 	</div>
 </template>
 

@@ -6,9 +6,11 @@ const props = withDefaults(defineProps<{
 	title: string,
 	font: string,
 	disableGlyphsetSelector?: boolean,
-}>(), { disableGlyphsetSelector: false });
+	disableCopyButton?: boolean,
+}>(), { disableGlyphsetSelector: false, disableCopyButton: false });
 const emit = defineEmits<{
 	updateGlpyhset: [id: number],
+	copy: [],
 }>();
 
 const selectedScriptId = ref(0);
@@ -26,7 +28,14 @@ const selectedScriptId = ref(0);
 		<span v-else>{{ props.title }}</span>
 		<span class="translatedTitle">{{ props.title }}</span>
 	</div>
-	<div class="windowTitleRight">&#xE067; &#xE063; &#xE066;</div>
+	<div class="windowTitleRight">
+		<button v-if="!props.disableCopyButton" @click="emit('copy'); console.log('test')">
+			Copy Text
+		</button>
+		<div>&#xE067;</div>
+		<div>&#xE063;</div>
+		<div>&#xE066;</div>
+	</div>
 </div>
 </template>
 
@@ -36,6 +45,15 @@ const selectedScriptId = ref(0);
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	background: white;
+	border-radius: 3px;
+	cursor: pointer;
+	font-family: inherit;
+	line-height: 0.75rem;
 }
 
 select {
@@ -71,9 +89,13 @@ option {
 }
 
 .windowTitleRight {
-	text-align: right;
+	display: flex;
+	justify-content: flex-end;
 }
 
+.windowTitleRight *:not(:last-child) {
+	margin-right: 10px;
+}
 .translatedTitle {
 	margin-left: 15px;
 	color: rgb(109, 109, 109);
