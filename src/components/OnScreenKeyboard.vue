@@ -8,7 +8,7 @@ const props = defineProps<{
 	glyphSet: GlyphSet,
 }>();
 const emit = defineEmits<{
-	input: [glpyh: Glyph],
+	input: [glyph: Glyph],
 	backspace: [],
 	space: [],
 	delete: [],

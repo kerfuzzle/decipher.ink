@@ -11,12 +11,12 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 <template>
 	<div class="container">
 		<div class="title">{{ glyphSet.name }}</div>
-		<div class="preview glpyhFont">{{ glyphSet.name }}</div>
+		<div class="preview glyphFont">{{ glyphSet.name }}</div>
 		<div class="description">{{ glyphSet.description }}</div>
 		<div class="container frostedBackground" v-if="overlappingSets.length">
 			Overlapping Characters:
 			<span class="set" v-for="(set, index) in overlappingSets" :key="index">
-				<span class="glpyhFont">{{ set.mappedCharacters[0] }}</span> → {{ set.mappedCharacters.join(', ') }}
+				<span class="glyphFont">{{ set.mappedCharacters[0] }}</span> → {{ set.mappedCharacters.join(', ') }}
 			</span>
 		</div>
 		<div v-else class="container frostedBackground">
@@ -53,7 +53,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	backdrop-filter: blur(3px);
 }
 
-.glpyhFont {
+.glyphFont {
 	font-family: v-bind('glyphSet.font'), Splatfont2;
 }
 

@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const SquareScript: GlyphSet = {
 	name: 'Square Script',
 	font: 'SplatoonSquare',
-	description: 'Square script appears in all three games and is used in a variety of situations, often for large blocks of text. Some Square Script glpyhs do not map to any characters at all so it is important to keep this in mind when deciphering.',
+	description: 'Square script appears in all three games and is used in a variety of situations, often for large blocks of text. Some Square Script glyphs do not map to any characters at all so it is important to keep this in mind when deciphering.',
 	downloadUrl: '#',
 	id: 0,
 	glyphs: [
