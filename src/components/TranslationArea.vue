@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, provide, ref } from 'vue';
 import OnScreenKeyboard from './OnScreenKeyboard.vue';
 import TextArea from './TextArea.vue';
 import WindowTitleBar from './WindowTitleBar.vue';
@@ -13,22 +13,23 @@ enum ArrowDirections {
 
 const currentText = ref('');
 const caretPosition = ref(0);
-const selectedGlpyhset = ref(SquareScript);
+const selectedGlyphset = ref(SquareScript);
+provide('selectedGlyphset', selectedGlyphset);
 const englishTextArea = ref<InstanceType<typeof TextArea> | null>(null);
 const currentPermutations = computed(() => {
 	return currentText.value.split(' ').map(word => {
-		return recursePermutations(word, selectedGlpyhset.value);
+		return recursePermutations(word, selectedGlyphset.value);
 	});
 });
 
 
-const recursePermutations = memoize((text: string, glpyhSet: GlyphSet): string[] => {
+const recursePermutations = memoize((text: string, glyphSet: GlyphSet): string[] => {
 	const newPermutations: string[] = [];
-	const glpyh = glpyhSet.glyphs.find(g => g.mappedCharacters.includes(text.substring(0, 1)));
-	const permutations: string[] = glpyh?.mappedCharacters.map(newChar => replaceAt(text, 0, newChar)) || [];
+	const glyph = glyphSet.glyphs.find(g => g.mappedCharacters.includes(text.substring(0, 1)));
+	const permutations: string[] = glyph?.mappedCharacters.map(newChar => replaceAt(text, 0, newChar)) || [];
 	if (text.length === 1) return permutations;
 	permutations.forEach(permutation => {
-		recursePermutations(permutation.substring(1), glpyhSet).forEach(newPermutation => {
+		recursePermutations(permutation.substring(1), glyphSet).forEach(newPermutation => {
 			newPermutations.push(permutation.substring(0, 1) + newPermutation);
 		});
 	});
@@ -40,8 +41,7 @@ function replaceAt(string: string, index: number, replacement: string) {
 }
 
 function registerInput(glyph: Glyph) {
-	currentText.value = currentText.value.slice(0, caretPosition.value) + glyph.mappedCharacters[0] + currentText.value.slice(caretPosition.value);
-	currentPermutations.effect.run();
+	currentText.value = currentText.value.slice(0, caretPosition.value) + glyph.mappedCharacters[0] + currentText.value.slice(caretPosition.value);;
 	moveCaret(1);
 }
 
@@ -72,8 +72,10 @@ function registerArrow(direction: ArrowDirections) {
 	else if (direction === ArrowDirections.Right) moveCaret(1);
 }
 
-function updateGlpyhset(id: number) {
-	selectedGlpyhset.value = glyphSets.get(id) || SquareScript;
+function updateGlyphset(id: number) {
+	selectedGlyphset.value = glyphSets.get(id) || SquareScript;
+	currentText.value = '';
+	caretPosition.value = 0;
 }
 
 function copy() {
@@ -86,11 +88,11 @@ function copy() {
 <template>
 	<div>
 		<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy"/>
-		<TextArea :words="currentPermutations" title="English" font="Splatfont2" ref="englishTextArea"/>
+		<TextArea :words="currentPermutations" title="English" font="Splatfont2" :has-permutations="true" ref="englishTextArea"/>
 	</div>
 	<div>
-		<WindowTitleBar :title="selectedGlpyhset.name" :font="selectedGlpyhset.font" @update-glpyhset="updateGlpyhset" :disable-copy-button="true"/>
-		<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlpyhset.font"/>
+		<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" @update-glyphset="updateGlyphset" :disable-copy-button="true"/>
+		<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlyphset.font"/>
 	</div>
-	<OnScreenKeyboard :glyphSet="selectedGlpyhset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
+	<OnScreenKeyboard :glyphSet="selectedGlyphset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
 </template>
