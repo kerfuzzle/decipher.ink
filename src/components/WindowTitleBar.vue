@@ -9,18 +9,26 @@ const props = withDefaults(defineProps<{
 	disableCopyButton?: boolean,
 }>(), { disableGlyphsetSelector: false, disableCopyButton: false });
 const emit = defineEmits<{
-	updateGlpyhset: [id: number],
+	updateGlyphset: [id: number],
 	copy: [],
 }>();
 
 const selectedScriptId = ref(0);
+const popoverVisible = ref(false);
+
+function showCopyPopover() {
+	popoverVisible.value = true;
+	setTimeout(() => {
+		popoverVisible.value = false;
+	}, 2000);
+}
 </script>
 
 <template>
 <div class="titleBar">
 	<div class="windowTitleLeft">
 		<div v-if="!props.disableGlyphsetSelector" class="select">
-			<select v-model="selectedScriptId" @change="emit('updateGlpyhset', selectedScriptId)">
+			<select v-model="selectedScriptId" @change="emit('updateGlyphset', selectedScriptId)">
 				<option v-for="[key, value] of glyphSets" :key="key" :value="key">{{ value.name }}</option>
 			</select>
 			&#9660;
@@ -29,7 +37,8 @@ const selectedScriptId = ref(0);
 		<span class="translatedTitle">{{ props.title }}</span>
 	</div>
 	<div class="windowTitleRight">
-		<button v-if="!props.disableCopyButton" @click="emit('copy'); console.log('test')">
+		<button v-if="!props.disableCopyButton" @click="emit('copy'); showCopyPopover()">
+			<div :class="['popover', { 'active': popoverVisible}]">Copied Successfully</div>
 			Copy Text
 		</button>
 		<div>&#xE067;</div>
@@ -49,11 +58,29 @@ const selectedScriptId = ref(0);
 
 button {
 	border: none;
-	background: white;
+	background: none;
 	border-radius: 3px;
 	cursor: pointer;
 	font-family: inherit;
 	line-height: 0.75rem;
+}
+
+.popover {
+	background-color: white;
+	color: black;
+	border-radius: 5px;
+	padding: 5px;
+	position: absolute;
+	transform: translate3d(0, 0, 0);
+	opacity: 0;
+	transition: 0.25s all ease-in-out;
+	height: 0px;
+}
+
+.popover.active {
+	height: auto;
+	transform: translate3d(0, -3lh, 0);
+	opacity: 1;
 }
 
 select {
@@ -91,11 +118,9 @@ option {
 .windowTitleRight {
 	display: flex;
 	justify-content: flex-end;
+	column-gap: 10px;
 }
 
-.windowTitleRight *:not(:last-child) {
-	margin-right: 10px;
-}
 .translatedTitle {
 	margin-left: 15px;
 	color: rgb(109, 109, 109);
