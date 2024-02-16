@@ -56,6 +56,11 @@ function showCopyPopover() {
 	box-sizing: border-box;
 }
 
+.titleBar {
+	position: relative;
+	z-index: 1;
+}
+
 button {
 	border: none;
 	background: none;

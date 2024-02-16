@@ -89,7 +89,7 @@ function isOverlap(char: string) {
 	opacity: 0;
 	transition: 0.25s all ease-in-out;
 	visibility: hidden;
-	z-index: 1;
+	z-index: 2;
 }
 
 .permutation-list.active {

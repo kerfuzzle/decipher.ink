@@ -3,10 +3,10 @@ import { computed, provide, ref } from 'vue';
 import OnScreenKeyboard from './OnScreenKeyboard.vue';
 import TextArea from './TextArea.vue';
 import WindowTitleBar from './WindowTitleBar.vue';
-import type { Glyph, GlyphSet } from '../typings/glyphs';
+import type { Glyph, GlyphSet } from '@/typings/glyphs';
 import { glyphSets } from '@/glyphSets/glyphSets';
 import { SquareScript } from '@/glyphSets/squareScript';
-import { memoize } from '../utils/memoize';
+import { memoize } from '@/utils/memoize';
 enum ArrowDirections {
 	Left, Right
 }

@@ -46,6 +46,7 @@ input {
 .textArea {
 	font-family: v-bind('props.font'), Splatfont2;
 	display: flex;
+	column-gap: 15px;
 	font-size: 50px;
 	justify-content: center;
 	align-items: center;
@@ -59,13 +60,5 @@ input {
 	border: 10px solid rgb(151, 151, 151);
 	border-top: 35px solid rgb(151, 151, 151);
 	border-radius: 5px;
-}
-
-.textArea > * {
-	margin-right: 15px;
-}
-
-.textArea > *:last-child {
-	margin-right: 0px;
 }
 </style>
