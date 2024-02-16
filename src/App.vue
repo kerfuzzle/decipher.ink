@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import MainNavbar from './components/MainNavbar.vue';
 import ScriptToEnglish from './views/ScriptToEnglish.vue';
+import EnglishToScript from './views/EnglishToScript.vue';
 import AboutPage from './views/AboutPage.vue';
 import FontDownloadPage from './views/FontDownloadPage.vue';
 import { computed, ref } from 'vue';
 
 const routes: {[index: string]: any} = {
 	'/':  ScriptToEnglish,
+	'/generator': EnglishToScript,
 	'/fonts': FontDownloadPage,
 	'/about': AboutPage,
 };

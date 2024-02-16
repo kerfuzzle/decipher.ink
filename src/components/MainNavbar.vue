@@ -12,10 +12,10 @@ withDefaults(defineProps<{
 	<div class="container">
 		<IconLogo class="logo"/>
 		<AnimatedTitle class="animated-title"/>
-		<a href="#/" :class="activePath == '/' ? 'active' : ''">Script → English</a>
-		<a>English → Script</a>
-		<a href="#/fonts" :class="activePath == '/fonts' ? 'active' : ''">Fonts</a>
-		<a href="#/about" :class="activePath == '/about' ? 'active' : ''">About</a>
+		<a href="#/" :class="{ 'active': activePath == '/'}">Script → English</a>
+		<a href="#/generator" :class="{ 'active': activePath == '/generator'}">English → Script</a>
+		<a href="#/fonts" :class="{ 'active': activePath == '/fonts'}">Fonts</a>
+		<a href="#/about" :class="{ 'active': activePath == '/about'}">About</a>
 	</div>
 </template>
 
