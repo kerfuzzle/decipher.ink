@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { GlyphSet } from '@/typings/glyphs';
+import DownloadButton from './DownloadButton.vue';
 
 const props = defineProps<{
 	glyphSet: GlyphSet;
@@ -23,8 +24,8 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 			Overlapping Characters: None!
 		</div>
 		<div class="buttonGroup">
-			<a class="download" href="https://github.com/kerfuzzle" target="_blank" rel="noopener noreferrer">Download Font <span class="fileFormat">.tff</span></a>
-			<a class="download" href="https://github.com/kerfuzzle"  target="_blank" rel="noopener noreferrer">Download Cipher <span class="fileFormat">.png</span></a>
+			<DownloadButton href="https://github.com/kerfuzzle" file-format=".ttf">Download Font</DownloadButton>
+			<DownloadButton href="https://github.com/kerfuzzle" file-format=".png">Download Cipher</DownloadButton>
 		</div>
 	</div>
 </template>
@@ -75,24 +76,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	margin: 5px;
 }
 
-.download {
-	align-self: flex-end;
-	padding: 10px;
-	border-radius: 10px;
+.buttonGroup > * {
 	margin: 5px 10px;
-	background: rgb(58, 12, 205);
-	color: white;
-}
-
-.download:hover {
-	background: rgb(58, 12, 205, 0.6);
-	backdrop-filter: blur(2px);
-}
-
-.fileFormat {
-	padding: 1px 4px;
-	background-color: rgb(255, 255, 255, 0.2);
-	border-radius: 5px;
-	margin-left: 10px;
 }
 </style>
