@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { glyphSets } from '../glyphSets/glyphSets';
+import PopoverAlert from './PopoverAlert.vue';
 
 const props = withDefaults(defineProps<{
 	title: string,
@@ -14,14 +15,7 @@ const emit = defineEmits<{
 }>();
 
 const selectedScriptId = ref(0);
-const popoverVisible = ref(false);
-
-function showCopyPopover() {
-	popoverVisible.value = true;
-	setTimeout(() => {
-		popoverVisible.value = false;
-	}, 2000);
-}
+const copyPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
 </script>
 
 <template>
@@ -37,8 +31,8 @@ function showCopyPopover() {
 		<span class="translatedTitle">{{ props.title }}</span>
 	</div>
 	<div class="windowTitleRight">
-		<button v-if="!props.disableCopyButton" @click="emit('copy'); showCopyPopover()">
-			<div :class="['popover', { 'active': popoverVisible}]">Copied Successfully</div>
+		<button v-if="!props.disableCopyButton" @click="emit('copy'); copyPopover?.showPopover()">
+			<PopoverAlert ref="copyPopover">Copied Successfully</PopoverAlert>
 			Copy Text
 		</button>
 		<div>&#xE067;</div>
@@ -68,24 +62,6 @@ button {
 	cursor: pointer;
 	font-family: inherit;
 	line-height: 0.75rem;
-}
-
-.popover {
-	background-color: white;
-	color: black;
-	border-radius: 5px;
-	padding: 5px;
-	position: absolute;
-	transform: translate3d(0, 0, 0);
-	opacity: 0;
-	transition: 0.25s all ease-in-out;
-	height: 0px;
-}
-
-.popover.active {
-	height: auto;
-	transform: translate3d(0, -3lh, 0);
-	opacity: 1;
 }
 
 select {
