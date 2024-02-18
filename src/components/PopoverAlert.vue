@@ -16,7 +16,7 @@ defineExpose({
 </script>
 
 <template>
-	<div :class="['popover', { 'active': popoverVisible}]"><slot/></div>
+	<div :class="['popover', { 'active': popoverVisible }]"><slot/></div>
 </template>
 
 <style scoped>
