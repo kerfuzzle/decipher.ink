@@ -17,6 +17,7 @@ const emit = defineEmits<{
 
 
 self.addEventListener('keydown', function(event) {
+	if (this.document.activeElement instanceof HTMLElement) this.document.activeElement.blur();
 	const key = event.key;
 	if (event.isComposing) return;
 	if (key === 'Backspace') emit('backspace');
@@ -65,7 +66,6 @@ button {
 	cursor: pointer;
 	min-width: 50px;
 	min-height: 80px;
-
 	-webkit-transition: all 200ms linear;
 	-moz-transition: all 200ms linear;
 	-ms-transition: all 200ms linear;
