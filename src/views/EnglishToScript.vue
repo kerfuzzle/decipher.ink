@@ -5,12 +5,17 @@ import { glyphSets } from '@/glyphSets/glyphSets';
 import domtoimage from 'dom-to-image';
 import { ref } from 'vue';
 import DownloadButton from '@/components/DownloadButton.vue';
+import PopoverAlert from '@/components/PopoverAlert.vue';
+
 const currentText = ref('');
 const selectedGlyphset = ref(SquareScript);
 const textContainer = ref<HTMLDivElement | null>(null);
 const backgroundColour = ref('#FFFFFF');
 const textColour = ref('#000000');
 const transparentBackground = ref(false);
+const saveImagePopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
+const copyImagePopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
+
 
 function captureImage(saveToDisk: boolean) {
 	if (!textContainer.value) return;
@@ -54,8 +59,10 @@ function updateGlyphset(id: number) {
 		<input id="textColour" type="color" v-model="textColour"/>
 		<label for="transparentToggle">Transparent Background</label>
 		<input id="transparentToggle" type="checkbox" v-model="transparentBackground"/>
-		<DownloadButton @click="captureImage(true)" file-format=".png">Save Image</DownloadButton>
-		<DownloadButton @click="captureImage(false)">Copy Image</DownloadButton>
+		<PopoverAlert ref="saveImagePopover">Saving Image!</PopoverAlert>
+		<DownloadButton @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">Save Image</DownloadButton>
+		<PopoverAlert ref="copyImagePopover">Copied Image!</PopoverAlert>
+		<DownloadButton @click="captureImage(false); copyImagePopover?.showPopover()">Copy Image</DownloadButton>
 	</div>
 	<div>
 		<WindowTitleBar class="titleBar" title="Input" font="Splatfont2" :disable-copy-button="true" :disable-glyphset-selector="true"/>

@@ -21,7 +21,7 @@ defineExpose({
 
 <style scoped>
 .popover {
-	background-color: white;
+	background-color: transparent;
 	color: black;
 	border-radius: 5px;
 	padding: 5px;
@@ -33,6 +33,7 @@ defineExpose({
 }
 
 .popover.active {
+	background-color: white;
 	height: auto;
 	transform: translate3d(0, -3lh, 0);
 	opacity: 1;
