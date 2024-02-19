@@ -20,7 +20,7 @@ const HalfmoonScript: GlyphSet = {
 		},
 		{
 			id: 3,
-			mappedCharacters: ['D', 'G'],
+			mappedCharacters: ['D', 'G', 'V'],
 		},
 		{
 			id: 4,
