@@ -8,6 +8,6 @@ export type GlyphSet = {
 	name: string;
 	font: string;
 	description: string;
-	downloadUrl: string;
+	downloadUrls: { font: string, cipher: string };
 	glyphs: Glyph[]
 }

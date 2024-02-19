@@ -2,8 +2,8 @@ import type { GlyphSet } from '../typings/glyphs';
 const RunicScript: GlyphSet = {
 	name: 'Runic Script',
 	font: 'SplatoonRunic',
-	description: 'Quibusdam corporis aut labore est aut dolor reiciendis numquam. Voluptatem debitis id ut enim accusantium. Dolores aliquam veritatis provident sit. Sed reprehenderit omnis necessitatibus autem temporibus. Vero at et voluptatem voluptatem omnis labore quae.',
-	downloadUrl: '#',
+	description: 'Like many of the other scripts deciphering Runic script had been already been attempted. Although it has now been fully deciphered, Runic Script \'X\' was found years after most of the other glyphs.',
+	downloadUrls: { font: '#', cipher: '#' },
 	id: 5,
 	glyphs: [
 		{

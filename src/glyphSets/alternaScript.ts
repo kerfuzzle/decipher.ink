@@ -2,9 +2,9 @@ import type { GlyphSet } from '../typings/glyphs';
 const AlternaScript: GlyphSet = {
 	name: 'Alterna Script',
 	font: 'SplatoonAlterna',
-	description: 'Quibusdam corporis aut labore est aut dolor reiciendis numquam. Voluptatem debitis id ut enim accusantium. Dolores aliquam veritatis provident sit. Sed reprehenderit omnis necessitatibus autem temporibus. Vero at et voluptatem voluptatem omnis labore quae.',
-	downloadUrl: '#',
-	id: 8, // UPDATE ME!
+	description: 'Alterna Script appears almost exclusively in Splatoon 3, mostly within Alterna but also features on some locker decorations. It is the only script that has an official name due to its interal file name "SpAlterna-Regular"',
+	downloadUrls: { font: '#', cipher: '#' },
+	id: 8,
 	glyphs: [
 		{
 			id: 0,

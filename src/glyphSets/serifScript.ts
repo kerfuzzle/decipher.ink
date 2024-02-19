@@ -2,8 +2,8 @@ import type { GlyphSet } from '../typings/glyphs';
 const SerifScript: GlyphSet = {
 	name: 'Serif Script',
 	font: 'SplatoonSerif',
-	description: 'Quibusdam corporis aut labore est aut dolor reiciendis numquam. Voluptatem debitis id ut enim accusantium. Dolores aliquam veritatis provident sit. Sed reprehenderit omnis necessitatibus autem temporibus. Vero at et voluptatem voluptatem omnis labore quae.',
-	downloadUrl: '#',
+	description: 'Serif Script, characterised by its serifs, appears throughout series; most notatably on the sunken scrolls.',
+	downloadUrls: { font: '#', cipher: '#' },
 	id: 1,
 	glyphs: [
 		{

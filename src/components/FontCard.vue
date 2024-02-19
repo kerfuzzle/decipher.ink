@@ -24,8 +24,8 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 			Overlapping Characters: None!
 		</div>
 		<div class="buttonGroup">
-			<DownloadButton href="https://github.com/kerfuzzle" file-format=".ttf">Download Font</DownloadButton>
-			<DownloadButton href="https://github.com/kerfuzzle" file-format=".png">Download Cipher</DownloadButton>
+			<DownloadButton :href="glyphSet.downloadUrls.font" file-format=".ttf">Download Font</DownloadButton>
+			<DownloadButton :href="glyphSet.downloadUrls.cipher" file-format=".png">Download Cipher</DownloadButton>
 		</div>
 	</div>
 </template>
