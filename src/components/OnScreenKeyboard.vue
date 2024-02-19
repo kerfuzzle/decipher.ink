@@ -54,6 +54,7 @@ self.addEventListener('keydown', function(event) {
 	justify-content: center;
 	align-items: center;
 }
+
 button {
 	font-family: v-bind('props.glyphSet.font');
 	font-size: 30px;

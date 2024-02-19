@@ -13,3 +13,7 @@ a {
 	color: inherit;
 	transition: 0.5s;
 }
+
+html {
+	font-size: calc(15px + 0.390625vw);
+}

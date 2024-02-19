@@ -24,7 +24,7 @@ withDefaults(defineProps<{
 	position:fixed;
 	top: 0px;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	width: 100%;
 	justify-content: flex-start;
 	align-items: center;
@@ -36,12 +36,13 @@ withDefaults(defineProps<{
 
 .container > * {
 	font-family: Splatfont2;
-	font-size: 30px;
+	font-size: 1.1rem;
 	margin: 0px 20px;
+	flex-shrink: 2;
 }
 
 .animated-title {
-	font-size: 40px;
+	font-size: 1.5rem;
 	margin-right: auto;
 }
 

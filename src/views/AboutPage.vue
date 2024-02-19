@@ -21,7 +21,7 @@ import SLICard from '../components/SLICard.vue';
 			Follow development & me here
 		</div>
 	</div>
-	<SocialsBar>
+	<SocialsBar class="socials">
 		<SocialsItem url="https://twitter.com/kerfuzzle_" name="@kerfuzzle_">
 			<IconTwitter/>
 		</SocialsItem>
@@ -39,7 +39,7 @@ import SLICard from '../components/SLICard.vue';
 		<div class="description subDescription">
 			The cool people that deciphered and contributed to finding these scripts
 		</div>
-		<SocialsBar>
+		<SocialsBar class="socials">
 			<SocialsItem url="https://twitter.com/ardnin_" name="@ardnin_">
 				<IconTwitter/>
 			</SocialsItem>
@@ -82,18 +82,22 @@ SLICard {
 }
 
 .animated-title {
-	font-size: 6vmax;
-	min-height: 11vmax;
+	font-size: 5rem;
 }
 
 .description {
 	margin: 15px;
-	font-size: 1.5vmax
+	font-size: 1.5rem
 }
 
 .subDescription {
-	font-size: 15px;
+	font-size: 0.8rem;
 }
+
+.socials {
+	font-size: 0.7rem;
+}
+
 .container {
 	justify-content: center;
 	align-items: center;

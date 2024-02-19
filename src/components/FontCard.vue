@@ -37,6 +37,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	align-items: flex-start;
 	display: flex;
 	width: 40vw;
+	font-size: 0.8rem;
 	background: url('/respawnIconBackground.png');
 	background-size: 225px;
 	margin: 15px;
@@ -63,7 +64,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 }
 
 .title {
-	font-size: 40px;
+	font-size: 2rem;
 	margin-right: auto;
 }
 

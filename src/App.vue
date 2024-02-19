@@ -39,6 +39,7 @@ const currentView = computed(() => {
 	left: 0px;
 	bottom: 0px;
 	width: 100%;
+	font-size: 0.7rem;
 	text-align: center;
 	color: grey;
 }
