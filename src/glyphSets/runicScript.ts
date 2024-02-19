@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const RunicScript: GlyphSet = {
 	name: 'Runic Script',
 	font: 'SplatoonRunic',
-	description: 'Like many of the other scripts deciphering Runic script had been already been attempted. Although it has now been fully deciphered, Runic Script \'X\' was found years after most of the other glyphs.',
+	description: 'Like many of the other scripts deciphering Runic script had been already been attempted. Although it has now been fully deciphered, Runic Script \'X\' was particularly notorious to solve.',
 	downloadUrls: { font: '#', cipher: '#' },
 	id: 5,
 	glyphs: [

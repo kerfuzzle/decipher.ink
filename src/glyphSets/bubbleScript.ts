@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const BubbleScript: GlyphSet = {
 	name: 'Bubble Script',
 	font: 'SplatoonBubble',
-	description: 'Bubble script appears in all three games but is rarely used at all, often to write complete gibberish. It is usually used to for transcribing spoken Inkling.',
+	description: 'Bubble script appears in all three games but is used relatively little, although it is often used to for transcribing spoken Inkling.',
 	downloadUrls: { font: '#', cipher: '#' },
 	id: 4,
 	glyphs: [
