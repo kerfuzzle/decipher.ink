@@ -10,17 +10,17 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 </script>
 
 <template>
-	<div class="container">
+	<div class="card">
 		<div class="title">{{ glyphSet.name }}</div>
 		<div class="preview glyphFont">{{ glyphSet.name }}</div>
 		<div class="description">{{ glyphSet.description }}</div>
-		<div class="container frostedBackground" v-if="overlappingSets.length">
+		<div class="frostedBackground overlapping-set" v-if="overlappingSets.length">
 			Overlapping Characters:
 			<span class="set" v-for="(set, index) in overlappingSets" :key="index">
 				<span class="glyphFont">{{ set.mappedCharacters[0] }}</span> → {{ set.mappedCharacters.join(', ') }}
 			</span>
 		</div>
-		<div v-else class="container frostedBackground">
+		<div v-else class="frostedBackground overlapping-set">
 			Overlapping Characters: None!
 		</div>
 		<div class="buttonGroup">
@@ -31,13 +31,16 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 </template>
 
 <style scoped>
-.container {
+.card {
 	color: black;
-	justify-content: left;
+	justify-content: center;
 	align-items: flex-start;
+	align-content: space-between;
+	flex-wrap: wrap;
 	display: flex;
-	width: 40vw;
+	max-width: 40%;
 	font-size: 0.8rem;
+	max-height: 50vh;
 	background: url('/respawnIconBackground.png');
 	background-size: 225px;
 	margin: 15px;
@@ -47,6 +50,29 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	-webkit-transition: 250ms linear;
 	-ms-transition: 250ms linear;
 	transition: 250ms linear;
+}
+
+.overlapping-set {
+	width: 90%;
+	margin: 15px;
+	padding: 15px;
+	justify-content: left;
+	align-items: flex-start;
+	display: flex;
+	border-radius: 15px;
+	overflow-x: scroll;
+}
+
+@media only screen and (max-width: 1200px) {
+	.card {
+		max-width: 95%;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.overlapping-set {
+		font-size: 0.675rem;
+	}
 }
 
 .frostedBackground {
@@ -64,18 +90,30 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 }
 
 .title {
-	font-size: 2rem;
+	font-size: 1.6rem;
 	margin-right: auto;
 }
 
 .preview {
 	margin-left: auto;
 	color: rgb(109, 109, 109);
-	font-size: 40px;
+	font-size:1.6rem;
 }
+
 .buttonGroup, .description {
 	margin: 5px;
 }
+
+.description {
+	max-width: 95%;
+}
+
+@media only screen and (max-width: 700px) {
+	.preview, .title {
+		font-size: 1.4rem;
+	}
+}
+
 
 .buttonGroup > * {
 	margin: 5px 10px;

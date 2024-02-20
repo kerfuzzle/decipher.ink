@@ -78,7 +78,10 @@ function updateGlyphset(id: number) {
 	align-items: center;
 	width: 50vw;
 	min-height: 20vh;
-	font-size: 50px;
+	max-height: 30vh;
+	overflow-y: scroll;
+	font-size: 3rem;
+	line-height: 5rem;
 	word-break: break-all;
 	background-color: transparent;
 	border: 10px solid rgb(151, 151, 151);
@@ -104,6 +107,7 @@ function updateGlyphset(id: number) {
 	background: rgb(151, 151, 151);
 	border-radius: 0 0 5px 5px;
 	margin-bottom: 60px;
+	font-size: 0.7rem;
 	padding: 15px;
 	display: flex;
 	justify-content: space-around;
@@ -125,7 +129,7 @@ function updateGlyphset(id: number) {
 	border-radius: 5px;
 	text-align: center;
 	word-break: break-all;
-	font-size: 30px;
+	font-size: 1.5rem;
 	font-family: Splatfont2;
 	background-image: url('/respawnIconBackground.png');
 	background-size: 225px;

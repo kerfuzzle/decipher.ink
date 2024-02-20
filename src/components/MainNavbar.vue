@@ -54,7 +54,7 @@ a.active {
 	color: white;
 	padding: 0px 10px;
 	border: 3px solid transparent;
-	border-radius: 20px;
+	border-radius: 0.75rem;
 	background-color: rgb(58, 12, 205)
 }
 

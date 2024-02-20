@@ -85,6 +85,12 @@ SLICard {
 	font-size: 5rem;
 }
 
+@media only screen and (max-width: 600px) {
+	.animated-title {
+		font-size: 4rem;
+	}
+}
+
 .description {
 	margin: 15px;
 	font-size: 1.5rem

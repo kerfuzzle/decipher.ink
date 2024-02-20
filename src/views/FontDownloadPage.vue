@@ -4,16 +4,17 @@ import { glyphSets } from '@/glyphSets/glyphSets';
 </script>
 
 <template>
-	<div class="container">
+	<div class="card-container">
 		<FontCard v-for="[key, value] of glyphSets" :key="key" :glyph-set="value"/>
 	</div>
 </template>
 
 <style scoped>
-.container {
+.card-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin-top: 35px
+	margin-top: 35px;
+	max-width: 100%;
 }
 </style>

@@ -25,7 +25,7 @@ const currentView = computed(() => {
 
 <template>
 	<MainNavbar :active-path="currentPath.slice(1) || '/'"/>
-	<div>
+	<div class="view-container">
 		<component :is="currentView"/>
 	</div>
 	<div class="footer">
@@ -42,6 +42,10 @@ const currentView = computed(() => {
 	font-size: 0.7rem;
 	text-align: center;
 	color: grey;
+}
+
+.view-container {
+	max-width: 100%;
 }
 
 a {
