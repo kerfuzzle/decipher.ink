@@ -25,6 +25,10 @@ self.addEventListener('keydown', function(event) {
 	else if (key === 'ArrowLeft') emit('arrow', ArrowDirections.Left);
 	else if (key === 'ArrowRight') emit('arrow', ArrowDirections.Right);
 	else if (key === ' ') emit('space');
+	else {
+		const glyph = props.glyphSet.glyphs.find(g => g.mappedCharacters.includes(props.glyphSet.id === 2 ? event.key : event.key.toUpperCase()));
+		if (glyph) emit('input', glyph);
+	}
 });
 </script>
 
