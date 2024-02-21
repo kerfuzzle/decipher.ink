@@ -40,7 +40,6 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	display: flex;
 	max-width: 45%;
 	font-size: 0.8rem;
-	max-height: 50vh;
 	background: url('/respawnIconBackground.png');
 	background-size: 225px;
 	margin: 15px;
@@ -50,12 +49,6 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	-webkit-transition: 250ms linear;
 	-ms-transition: 250ms linear;
 	transition: 250ms linear;
-}
-
-@media only screen and (max-width: 600px) {
-	.card {
-		max-height: 70vh;
-	}
 }
 
 .overlapping-set {
@@ -70,19 +63,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 }
 
 .overlapping-set > * {
-	margin: 0px 0.1rem;
-}
-
-@media only screen and (max-width: 1200px) {
-	.card {
-		max-width: 95%;
-	}
-}
-
-@media only screen and (max-width: 1200px) {
-	.overlapping-set {
-		font-size: 0.675rem;
-	}
+	margin: 0px 0.5rem;
 }
 
 .frostedBackground {
@@ -123,19 +104,36 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	flex-grow: 2;
 	max-width: 200px;
 }
-@media only screen and (max-width: 600px) {
-	.buttonGroup > * {
-		max-width: unset;
-	}
-}
 
 .description {
 	max-width: 95%;
 }
 
-@media only screen and (max-width: 700px) {
-	.preview, .title {
-		font-size: 1.4rem;
+@media only screen and (max-width: 600px) {
+	.card {
+		max-height: 70vh;
+	}
+
+	.buttonGroup > * {
+		max-width: unset;
+	}
+
+	.title {
+		margin-right: 0px;
+		text-align: center;
+		width: 100%;
+	}
+
+	.preview {
+		margin-left: 0px;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.card {
+		max-width: 95%;
 	}
 }
 </style>

@@ -51,7 +51,7 @@ input {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	width: 50vw;
+	max-width: 900px;
 	margin-bottom: 50px;
 	min-height: 20vh;
 	color: black;

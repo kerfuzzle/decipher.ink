@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const props = defineProps<{
+	titleContent: string;
+}>();
+
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const titleContent = 'decipher.ink';
 const fonts = ['SplatoonAlterna', 'SplatoonBold', 'SplatoonBubble', 'SplatoonHalfmoon', 'SplatoonRunic', 'SplatoonSerif', 'SplatoonSign', 'SplatoonSquare'];
 let id = 0;
-const titleLetters = ref(titleContent.split('').map(char => {
+const titleLetters = ref(props.titleContent.split('').map(char => {
 	return { id: id++, char: char, font: 'Splatfont2' };
 }));
 
@@ -20,20 +23,25 @@ function translateTitle(intoCipher: boolean) {
 		for (let i = 0; i < titleLetters.value.length; i++) {
 			const letter = titleLetters.value[i];
 			if (i < iterations) {
-				letter.char = titleContent[i];
+				letter.char = props.titleContent[i];
 				letter.font = target;
 			}
 			else {
 				letter.char = alphabet[Math.floor(Math.random() * 26)];
 			}
 		}
-		if (iterations >= titleContent.length) {
+		if (iterations >= props.titleContent.length) {
 			clearInterval(interval);
 			isTranslating = false;
 		}
 		iterations += 1;
 	}, 35);
 }
+
+
+defineExpose({
+	translateTitle,
+});
 </script>
 
 <template>

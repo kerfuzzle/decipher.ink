@@ -13,9 +13,9 @@ import SLICard from '../components/SLICard.vue';
 
 <template>
 	<div class="container">
-		<AnimatedTitle class="animated-title"/>
+		<AnimatedTitle class="animated-title" title-content="decipher.ink"/>
 		<div class="description">
-			A site for translating Splatoon scripts.
+			A site for translating Splatoon scripts!
 		</div>
 		<div class="description subDescription">
 			Follow development & me here

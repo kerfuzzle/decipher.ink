@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import IconLogo from '../assets/icons/IconLogo.vue';
 import AnimatedTitle from './AnimatedTitle.vue';
 
@@ -7,10 +7,9 @@ withDefaults(defineProps<{
 	activePath?: string,
 }>(), { activePath: '/' });
 
-const useMobileView = ref(false);
+const useMobileView = ref(window.innerWidth < 800);
 const hamburgerOpen = ref(false);
 window.onresize = () => {
-	console.log(window.innerWidth);
 	if (window.innerWidth) useMobileView.value = window.innerWidth < 800;
 };
 </script>
@@ -18,7 +17,7 @@ window.onresize = () => {
 <template>
 	<div :class="['navbar', { 'menu-open': hamburgerOpen }]">
 		<IconLogo class="logo"/>
-		<AnimatedTitle class="animated-title"/>
+		<AnimatedTitle class="animated-title" title-content="decipher.ink"/>
 		<a v-if="!useMobileView" href="#/" :class="{ 'active': activePath == '/'}">Script → English</a>
 		<a v-if="!useMobileView" href="#/generator" :class="{ 'active': activePath == '/generator'}">English → Script</a>
 		<a v-if="!useMobileView" href="#/fonts" :class="{ 'active': activePath == '/fonts'}">Fonts</a>
@@ -100,7 +99,11 @@ window.onresize = () => {
 
 .dropdown > a {
 	margin: 8px 0;
-	font-size: 1.7rem;
+	font-size: 2.5rem;
+}
+
+.dropdown > a.active {
+	color: rgb(58, 12, 205);
 }
 
 .animated-title {

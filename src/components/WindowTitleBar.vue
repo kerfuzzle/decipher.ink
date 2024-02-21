@@ -89,7 +89,7 @@ option {
 
 .windowTitleLeft, .windowTitleRight {
 	color: rgb(37, 37, 37);
-	font-size: 20px;
+	font-size: 1rem;
 	margin: -1.3em 10px;
 	overflow: hidden;
 	text-align: left;
