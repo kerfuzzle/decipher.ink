@@ -86,7 +86,7 @@ function updateGlyphset(id: number) {
 	background-color: transparent;
 	border: 10px solid rgb(151, 151, 151);
 	border-top: 35px solid rgb(151, 151, 151);
-	border-radius: 5px 5px 0 0 ;
+	border-radius: 5px 5px 0 0;
 	font-family: v-bind('selectedGlyphset.font'), Splatfont2;
 	color: v-bind(textColour);
 	background-color: v-bind(backgroundColour);

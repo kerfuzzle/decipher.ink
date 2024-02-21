@@ -18,7 +18,7 @@ module.exports = {
 		'comma-dangle': ['error', 'always-multiline'],
 		'comma-spacing': 'error',
 		'comma-style': 'error',
-		'curly': ['error', 'multi-line', 'consistent'],
+		'curly': ['error', 'multi-line'],
 		'dot-location': ['error', 'property'],
 		'handle-callback-err': 'off',
 		'indent': ['error', 'tab'],

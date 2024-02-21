@@ -46,6 +46,7 @@ const currentView = computed(() => {
 
 .view-container {
 	max-width: 100%;
+	margin: 50px 0px;
 }
 
 a {

@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-	<a class="download" target="_blank" rel="noopener noreferrer"><slot/> <span v-if="fileFormat" class="fileFormat">{{ props.fileFormat }}</span></a>
+	<a class="download" target="_blank" rel="noopener noreferrer"><slot/><span v-if="fileFormat" class="fileFormat">{{ props.fileFormat }}</span></a>
 </template>
 
 <style scoped>
@@ -15,6 +15,8 @@ const props = defineProps<{
 	border-radius: 10px;
 	background: rgb(58, 12, 205);
 	color: white;
+	white-space: nowrap;
+	text-align: center;
 }
 
 .download:hover {

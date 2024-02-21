@@ -16,7 +16,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 		<div class="description">{{ glyphSet.description }}</div>
 		<div class="frostedBackground overlapping-set" v-if="overlappingSets.length">
 			Overlapping Characters:
-			<span class="set" v-for="(set, index) in overlappingSets" :key="index">
+			<span v-for="(set, index) in overlappingSets" :key="index">
 				<span class="glyphFont">{{ set.mappedCharacters[0] }}</span> → {{ set.mappedCharacters.join(', ') }}
 			</span>
 		</div>
@@ -38,7 +38,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	align-content: space-between;
 	flex-wrap: wrap;
 	display: flex;
-	max-width: 40%;
+	max-width: 45%;
 	font-size: 0.8rem;
 	max-height: 50vh;
 	background: url('/respawnIconBackground.png');
@@ -52,15 +52,25 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	transition: 250ms linear;
 }
 
+@media only screen and (max-width: 600px) {
+	.card {
+		max-height: 70vh;
+	}
+}
+
 .overlapping-set {
 	width: 90%;
-	margin: 15px;
+	margin: 15px 0;
 	padding: 15px;
-	justify-content: left;
-	align-items: flex-start;
+	align-items: center;
+	justify-content: flex-start;
 	display: flex;
+	flex-wrap: wrap;
 	border-radius: 15px;
-	overflow-x: scroll;
+}
+
+.overlapping-set > * {
+	margin: 0px 0.1rem;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -85,10 +95,6 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	font-family: v-bind('glyphSet.font'), Splatfont2;
 }
 
-.set {
-	padding: 0px 10px;
-}
-
 .title {
 	font-size: 1.6rem;
 	margin-right: auto;
@@ -104,6 +110,25 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	margin: 5px;
 }
 
+.buttonGroup {
+	font-size: 0.8rem;
+	width: 95%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.buttonGroup > * {
+	margin: 5px 10px;
+	flex-grow: 2;
+	max-width: 200px;
+}
+@media only screen and (max-width: 600px) {
+	.buttonGroup > * {
+		max-width: unset;
+	}
+}
+
 .description {
 	max-width: 95%;
 }
@@ -112,10 +137,5 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	.preview, .title {
 		font-size: 1.4rem;
 	}
-}
-
-
-.buttonGroup > * {
-	margin: 5px 10px;
 }
 </style>
