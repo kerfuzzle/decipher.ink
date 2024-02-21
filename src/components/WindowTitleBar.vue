@@ -51,8 +51,12 @@ const copyPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
 }
 
 .titleBar {
-	position: relative;
 	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	background-color: rgb(151, 151, 151);
+	padding: 3px 10px;
+	border-radius: 5px 5px 0px 0px;
 }
 
 button {
@@ -90,7 +94,6 @@ option {
 .windowTitleLeft, .windowTitleRight {
 	color: rgb(37, 37, 37);
 	font-size: 1rem;
-	margin: -1.3em 10px;
 	overflow: hidden;
 	text-align: left;
 	line-height: 1.2em;
@@ -106,5 +109,11 @@ option {
 	margin-left: 15px;
 	color: rgb(109, 109, 109);
 	font-family: v-bind('props.font'), Splatfont2;;
+}
+
+@media only screen and (max-width: 600px) {
+	.windowTitleRight > div {
+		display: none;
+	}
 }
 </style>

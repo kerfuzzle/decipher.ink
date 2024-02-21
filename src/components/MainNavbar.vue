@@ -15,7 +15,7 @@ window.onresize = () => {
 </script>
 
 <template>
-	<div :class="['navbar', { 'menu-open': hamburgerOpen }]">
+	<div :class="['navbar', { 'menu-open': hamburgerOpen }, {'sticky': activePath === '/fonts' || activePath == '/about'}]">
 		<IconLogo class="logo"/>
 		<AnimatedTitle class="animated-title" title-content="decipher.ink"/>
 		<a v-if="!useMobileView" href="#/" :class="{ 'active': activePath == '/'}">Script → English</a>
@@ -38,7 +38,7 @@ window.onresize = () => {
 
 <style scoped>
 .navbar {
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	display: flex;
 	flex-wrap: nowrap;
@@ -50,6 +50,10 @@ window.onresize = () => {
 	min-height: 70px;
 	z-index: 5;
 	transition: 0.25s all ease-in-out;
+}
+
+.sticky {
+	position: fixed;
 }
 
 .navbar.menu-open {

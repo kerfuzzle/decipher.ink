@@ -17,7 +17,7 @@ const emit = defineEmits<{
 
 
 self.addEventListener('keydown', function(event) {
-	if (this.document.activeElement instanceof HTMLElement) this.document.activeElement.blur();
+	if (this.document.activeElement instanceof HTMLElement && this.document.activeElement.className !== 'input-area') this.document.activeElement.blur();
 	const key = event.key;
 	if (event.isComposing) return;
 	if (key === 'Backspace') emit('backspace');
@@ -52,16 +52,22 @@ self.addEventListener('keydown', function(event) {
 
 <style scoped>
 .keyboard {
-	width: 50vw;
+	width: 1000px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 }
 
+@media only screen and (max-width: 1200px) {
+	.keyboard {
+		width: 97%;
+	}
+}
+
 button {
 	font-family: v-bind('props.glyphSet.font');
-	font-size: 30px;
+	font-size: 1.5rem;
 	margin: 3px;
 	padding: 5px;
 	border-radius: 12px;
@@ -76,6 +82,22 @@ button {
 	-ms-transition: all 200ms linear;
 	-o-transition: all 200ms linear;
 	transition: all 200ms linear;
+}
+
+@media only screen and (max-width: 700px) {
+	button {
+		font-size: 1.1rem;
+		min-width: 30px;
+		min-height: 55px;
+		margin: 2px;
+		padding: 3px;
+		border-radius: 8px;
+		border: 3px solid rgb(52, 52, 52);
+	}
+
+	.keyboard {
+		justify-content: space-between;
+	}
 }
 
 button:hover {

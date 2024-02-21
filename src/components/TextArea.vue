@@ -47,18 +47,24 @@ input {
 	font-family: v-bind('props.font'), Splatfont2;
 	display: flex;
 	column-gap: 15px;
-	font-size: 50px;
 	justify-content: center;
 	align-items: center;
+	align-content: center;
 	flex-wrap: wrap;
-	max-width: 900px;
-	margin-bottom: 50px;
-	min-height: 20vh;
+	width: 1200px;
+	min-height: 25vh;
 	color: black;
 	background-image: url('/respawnIconBackground.png');
 	background-size: 225px;
 	border: 10px solid rgb(151, 151, 151);
-	border-top: 35px solid rgb(151, 151, 151);
-	border-radius: 5px;
+	border-top: 0px;
+	/*border-top: 35px solid rgb(151, 151, 151);*/
+	border-radius: 0px 0px 5px 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.textArea {
+		width: 95vw;
+	}
 }
 </style>

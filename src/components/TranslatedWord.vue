@@ -58,11 +58,14 @@ function isOverlap(char: string) {
 
 <style>
 .word {
-	padding-top: 10px;
-	padding-left: 5px;
-	padding-right: 5px;
 	display: flex;
+	padding: 3px;
+	flex-wrap: wrap;
+	font-size: 2rem;
+	justify-content: center;
 	position: relative;
+	word-break: break-all;
+	max-width: 100%;
 }
 
 
@@ -74,14 +77,14 @@ function isOverlap(char: string) {
 }
 
 .permutation-list {
+	word-break: normal;
 	min-width: 100%;
 	max-height: 20rem;
 	overflow: hidden;
 	overflow-y: scroll;
 	text-align: center;
 	position: absolute;
-	margin-top: 4rem;
-	margin-left: -5px;
+	top: 65px;
 	padding: 3px;
 	background: white;
 	border-radius: 3px;
@@ -101,7 +104,7 @@ function isOverlap(char: string) {
 
 .permutation {
 	cursor: pointer;
-	font-size: 25px;
+	font-size: 1rem;
 }
 
 .character {

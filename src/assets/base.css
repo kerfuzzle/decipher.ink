@@ -53,6 +53,7 @@
 
 
 body {
+	overflow-anchor: auto;
 	position: relative;
 	display: flex;
 	justify-content: center;

@@ -86,13 +86,28 @@ function copy() {
 </script>
 
 <template>
-	<div>
-		<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy"/>
-		<TextArea :words="currentPermutations" title="English" font="Splatfont2" :has-permutations="true" ref="englishTextArea"/>
+	<div class="translation-area">
+		<div class="window">
+			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy"/>
+			<TextArea :words="currentPermutations" title="English" font="Splatfont2" :has-permutations="true" ref="englishTextArea"/>
+		</div>
+		<div class="window">
+			<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" @update-glyphset="updateGlyphset" :disable-copy-button="true"/>
+			<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlyphset.font"/>
+		</div>
+		<OnScreenKeyboard :glyphSet="selectedGlyphset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
 	</div>
-	<div>
-		<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" @update-glyphset="updateGlyphset" :disable-copy-button="true"/>
-		<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlyphset.font"/>
-	</div>
-	<OnScreenKeyboard :glyphSet="selectedGlyphset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
 </template>
+
+<style>
+.translation-area {
+	display: flex;
+	justify-content: center;
+	align-items: space-between;
+	flex-wrap: wrap;
+}
+
+.window {
+	margin: 0.75rem 0;
+}
+</style>
