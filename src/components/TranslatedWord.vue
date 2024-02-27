@@ -40,7 +40,7 @@ function isOverlap(char: string) {
 </script>
 
 <template>
-	<div :class="['word', { 'has-permutations': props.hasPermutations && props.permutations.length > 1 }]" @mouseenter="menuOpen = true" @mouseleave="menuOpen = false">
+	<div :class="['word', { 'has-permutations': props.hasPermutations && props.permutations.length > 1 }]" @mouseenter="menuOpen = true" @mouseleave="menuOpen = false" @click="menuOpen = !menuOpen">
 		<div v-for="(char, index) in selectedPermutation" :key="index" :class="char === '|' ? 'caret' : 'character'">
 			<div v-if="char === '|'" class="blinking-cursor"/>
 			<div v-else :class="{ 'multi-glyph': isOverlap(char) }">
@@ -74,6 +74,14 @@ function isOverlap(char: string) {
 	border-radius: 10px;
 	background: rgba(54, 54, 54, 0.15);
 	cursor: pointer;
+}
+
+@media (hover: none) {
+	.word.has-permutations {
+		border: 1px transparent;
+		border-radius: 10px;
+		background: rgba(54, 54, 54, 0.15);
+	}
 }
 
 .permutation-list {
@@ -119,7 +127,6 @@ function isOverlap(char: string) {
 	display: inline;
 	width: min-content;
 	height: min-content;
-	display: flex;
 }
 
 .multi-glyph {
@@ -127,7 +134,6 @@ function isOverlap(char: string) {
 }
 
 .blinking-cursor {
-	margin: 7px -2px;
 	width: 2px;
 	height: 40px;
 	background-color: black;

@@ -66,6 +66,7 @@ button {
 	cursor: pointer;
 	font-family: inherit;
 	line-height: 0.75rem;
+	color: black;
 }
 
 select {
@@ -81,6 +82,7 @@ select {
 	line-height: inherit;
 	font-size: inherit;
 	outline: none;
+	color: black;
 }
 
 .select {
