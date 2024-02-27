@@ -110,10 +110,6 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 }
 
 @media only screen and (max-width: 600px) {
-	.card {
-		max-height: 70vh;
-	}
-
 	.buttonGroup > * {
 		max-width: unset;
 	}

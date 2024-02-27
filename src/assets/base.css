@@ -55,9 +55,6 @@
 body {
 	overflow-anchor: auto;
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	min-height: 100vh;
 	color: #ffffff;
 	background: repeat-y url('/background.jpg');
