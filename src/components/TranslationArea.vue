@@ -99,7 +99,7 @@ function copy() {
 	</div>
 </template>
 
-<style>
+<style scoped>
 .translation-area {
 	display: flex;
 	justify-content: center;

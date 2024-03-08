@@ -44,39 +44,50 @@ function updateGlyphset(id: number) {
 </script>
 
 <template>
-	<div>
+	<div class="window">
 		<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" :disable-copy-button="true" @update-glyphset="updateGlyphset"/>
 		<div :class="['output-area', { 'transparency-checkerboard': transparentBackground }]">
 			<div class="text-container" ref="textContainer">
 				{{ currentText }}
 			</div>
 		</div>
+		<div class="options-box">
+			<label for="backgroundColour">Background Colour</label>
+			<input id="backgroundColour" type="color" :disabled='transparentBackground' v-model="backgroundColour"/>
+			<label for="textColour">Text Colour</label>
+			<input id="textColour" type="color" v-model="textColour"/>
+			<label for="transparentToggle">Transparent Background</label>
+			<input id="transparentToggle" type="checkbox" v-model="transparentBackground"/>
+			<PopoverAlert ref="saveImagePopover">Saving Image!</PopoverAlert>
+			<DownloadButton @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">Save Image</DownloadButton>
+			<PopoverAlert ref="copyImagePopover">Copied Image!</PopoverAlert>
+			<DownloadButton @click="captureImage(false); copyImagePopover?.showPopover()">Copy Image</DownloadButton>
+		</div>
 	</div>
-	<div class="options-box">
-		<label for="backgroundColour">Background Colour</label>
-		<input id="backgroundColour" type="color" :disabled='transparentBackground' v-model="backgroundColour"/>
-		<label for="textColour">Text Colour</label>
-		<input id="textColour" type="color" v-model="textColour"/>
-		<label for="transparentToggle">Transparent Background</label>
-		<input id="transparentToggle" type="checkbox" v-model="transparentBackground"/>
-		<PopoverAlert ref="saveImagePopover">Saving Image!</PopoverAlert>
-		<DownloadButton @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">Save Image</DownloadButton>
-		<PopoverAlert ref="copyImagePopover">Copied Image!</PopoverAlert>
-		<DownloadButton @click="captureImage(false); copyImagePopover?.showPopover()">Copy Image</DownloadButton>
-	</div>
-	<div>
+	<div class="window">
 		<WindowTitleBar class="titleBar" title="Input" font="Splatfont2" :disable-copy-button="true" :disable-glyphset-selector="true"/>
 		<textarea class="input-area" autofocus="true" spellcheck="false" v-model="currentText"/>
 	</div>
 
 </template>
 
-<style>
+<style scoped>
+.window {
+	width: 1200px;
+	margin: 0.75rem 0;
+}
+
+
+@media only screen and (max-width: 1200px) {
+	.window {
+		width: 95vw;
+	}
+}
+
 .output-area {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50vw;
 	min-height: 20vh;
 	max-height: 30vh;
 	overflow-y: scroll;
@@ -85,8 +96,6 @@ function updateGlyphset(id: number) {
 	word-break: break-all;
 	background-color: transparent;
 	border: 10px solid rgb(151, 151, 151);
-	border-top: 35px solid rgb(151, 151, 151);
-	border-radius: 5px 5px 0 0;
 	font-family: v-bind('selectedGlyphset.font'), Splatfont2;
 	color: v-bind(textColour);
 	background-color: v-bind(backgroundColour);
@@ -103,13 +112,13 @@ function updateGlyphset(id: number) {
 
 .options-box {
 	color: black;
-	width: 50vw;
 	background: rgb(151, 151, 151);
 	border-radius: 0 0 5px 5px;
-	margin-bottom: 60px;
 	font-size: 0.7rem;
 	padding: 15px;
 	display: flex;
+	flex-wrap: wrap;
+	row-gap: 5px;
 	justify-content: space-around;
 	align-items: center;
 }
@@ -121,12 +130,11 @@ function updateGlyphset(id: number) {
 }
 
 .input-area {
-	width: 50vw;
 	resize: none;
+	width: 100%;
 	min-height: 20vh;
 	border: 10px solid rgb(151, 151, 151);
-	border-top: 35px solid rgb(151, 151, 151);
-	border-radius: 5px;
+	border-radius: 0 0 5px 5px;
 	text-align: center;
 	word-break: break-all;
 	font-size: 1.5rem;
