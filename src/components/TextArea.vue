@@ -54,12 +54,17 @@ input {
 	width: 1200px;
 	min-height: 25vh;
 	color: black;
-	background-image: url('/respawnIconBackground.png');
 	background-size: 225px;
 	border: 10px solid rgb(151, 151, 151);
 	border-top: 0px;
-	/*border-top: 35px solid rgb(151, 151, 151);*/
 	border-radius: 0px 0px 5px 5px;
+	background-image: url('/respawnIconBackground.png');
+	@supports (background-image: url('/respawnIconBackground.webp')) {
+		background-image: url('/respawnIconBackground.webp');
+	}
+	@supports (background-image: url('/respawnIconBackground.avif')) {
+		background-image: url('/respawnIconBackground.avif');
+	}
 }
 
 @media only screen and (max-width: 1200px) {

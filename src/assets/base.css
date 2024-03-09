@@ -7,48 +7,44 @@
 }
 
 @font-face {
-	font-family: Splatfont;
-	src: url('/fonts/Splatfont.ttf');
-}
-@font-face {
 	font-family: Splatfont2;
-	src: url('/fonts/Splatfont2.ttf');
+	src: url('/fonts/Splatfont2.woff2'), url('/fonts/Splatfont2.zopfli.woff'), url('/fonts/Splatfont2.ttf');
 }
 @font-face {
 	font-family: SplatoonAlterna;
-	src: url('/fonts/SplatoonAlterna.otf');
+	src: url('/fonts/SplatoonAlterna.woff2'), url('/fonts/SplatoonAlterna.zopfli.woff'), url('/fonts/SplatoonAlterna.ttf');
 }
 @font-face {
 	font-family: SplatoonBold;
-	src: url('/fonts/SplatoonBold.ttf');
+	src: url('/fonts/SplatoonBold.woff2'), url('/fonts/SplatoonBold.zopfli.woff'), url('/fonts/SplatoonBold.ttf');
 }
 @font-face {
 	font-family: SplatoonBubble;
-	src: url('/fonts/SplatoonBubble.ttf');
+	src: url('/fonts/SplatoonBubble.woff2'), url('/fonts/SplatoonBubble.zopfli.woff'), url('/fonts/SplatoonBubble.ttf');
 }
 @font-face {
 	font-family: SplatoonHalfmoon;
-	src: url('/fonts/SplatoonHalfmoon.ttf');
+	src: url('/fonts/SplatoonHalfmoon.woff2'), url('/fonts/SplatoonHalfmoon.zopfli.woff'), url('/fonts/SplatoonHalfmoon.ttf');
 }
 @font-face {
 	font-family: SplatoonRound;
-	src: url('/fonts/SplatoonRound.ttf');
+	src: url('/fonts/SplatoonRound.woff2'), url('/fonts/SplatoonRound.zopfli.woff'), url('/fonts/SplatoonRound.ttf');
 }
 @font-face {
 	font-family: SplatoonRunic;
-	src: url('/fonts/SplatoonRunic.ttf');
+	src: url('/fonts/SplatoonRunic.woff2'), url('/fonts/SplatoonRunic.zopfli.woff'), url('/fonts/SplatoonRunic.ttf');
 }
 @font-face {
 	font-family: SplatoonSerif;
-	src: url('/fonts/SplatoonSerif.ttf');
+	src: url('/fonts/SplatoonSerif.woff2'), url('/fonts/SplatoonSerif.zopfli.woff'), url('/fonts/SplatoonSerif.ttf');
 }
 @font-face {
 	font-family: SplatoonSign;
-	src: url('/fonts/SplatoonSign.ttf');
+	src: url('/fonts/SplatoonSign.woff2'), url('/fonts/SplatoonSign.zopfli.woff'), url('/fonts/SplatoonSign.ttf');
 }
 @font-face {
 	font-family: SplatoonSquare;
-	src: url('/fonts/SplatoonSquare.ttf');
+	src: url('/fonts/SplatoonSquare.woff2'), url('/fonts/SplatoonSquare.zopfli.woff'), url('/fonts/SplatoonSquare.ttf');
 }
 
 
@@ -57,7 +53,6 @@ body {
 	position: relative;
 	min-height: 100vh;
 	color: #ffffff;
-	background: repeat url('/repeating.png');
 	transition: color 0.5s, background-color 0.5s;
 	background-color: #323232;
 	line-height: 1.6;
@@ -65,4 +60,11 @@ body {
 	text-rendering: optimizeSpeed;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: repeat url('/repeating.png');
+	@supports (background-image: url('/repeating.webp')) { 
+		background-image: url('/repeating.webp');
+	}
+	@supports (background-image: url('/repeating.avif')) { 
+		background-image: url('/repeating.avif');
+	}
 }

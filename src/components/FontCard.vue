@@ -40,8 +40,6 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	display: flex;
 	max-width: 45%;
 	font-size: 0.8rem;
-	background: url('/respawnIconBackground.png');
-	background-size: 225px;
 	margin: 15px;
 	padding: 15px;
 	border: 7px solid rgb(151, 151, 151);
@@ -49,6 +47,14 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	-webkit-transition: 250ms linear;
 	-ms-transition: 250ms linear;
 	transition: 250ms linear;
+	background-size: 225px;
+	background-image: url('/respawnIconBackground.png');
+	@supports (background-image: url('/respawnIconBackground.webp')) {
+		background-image: url('/respawnIconBackground.webp');
+	}
+	@supports (background-image: url('/respawnIconBackground.avif')) {
+		background-image: url('/respawnIconBackground.avif');
+	}
 }
 
 .overlapping-set {

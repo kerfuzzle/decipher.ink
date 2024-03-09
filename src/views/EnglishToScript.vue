@@ -167,8 +167,14 @@ function updateGlyphset(id: number) {
 	word-break: break-all;
 	font-size: 1.5rem;
 	font-family: Splatfont2;
-	background-image: url('/respawnIconBackground.png');
 	background-size: 225px;
+	background-image: url('/respawnIconBackground.png');
+	@supports (background-image: url('/respawnIconBackground.webp')) {
+		background-image: url('/respawnIconBackground.webp');
+	}
+	@supports (background-image: url('/respawnIconBackground.avif')) {
+		background-image: url('/respawnIconBackground.avif');
+	}
 }
 
 input:focus, textarea:focus {
