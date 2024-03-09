@@ -57,8 +57,7 @@ body {
 	position: relative;
 	min-height: 100vh;
 	color: #ffffff;
-	background: repeat-y url('/background.jpg');
-	background-size: cover;
+	background: repeat url('/repeating.png');
 	transition: color 0.5s, background-color 0.5s;
 	background-color: #323232;
 	line-height: 1.6;
