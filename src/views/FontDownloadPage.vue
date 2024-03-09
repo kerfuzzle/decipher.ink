@@ -14,7 +14,6 @@ import { glyphSets } from '@/glyphSets/glyphSets';
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin-top: 35px;
 	max-width: 100%;
 }
 </style>

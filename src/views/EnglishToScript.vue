@@ -52,16 +52,22 @@ function updateGlyphset(id: number) {
 			</div>
 		</div>
 		<div class="options-box">
-			<label for="backgroundColour">Background Colour</label>
-			<input id="backgroundColour" type="color" :disabled='transparentBackground' v-model="backgroundColour"/>
-			<label for="textColour">Text Colour</label>
-			<input id="textColour" type="color" v-model="textColour"/>
-			<label for="transparentToggle">Transparent Background</label>
-			<input id="transparentToggle" type="checkbox" v-model="transparentBackground"/>
+			<div class="label-group">
+				<label for="backgroundColour">Background Colour</label>
+				<input id="backgroundColour" type="color" :disabled='transparentBackground' v-model="backgroundColour"/>
+			</div>
+			<div class="label-group">
+				<label for="textColour">Text Colour</label>
+				<input id="textColour" type="color" v-model="textColour"/>
+			</div>
+			<div class="label-group">
+				<label for="transparentToggle">Transparent Background</label>
+				<input id="transparentToggle" type="checkbox" v-model="transparentBackground"/>
+			</div>
 			<PopoverAlert ref="saveImagePopover">Saving Image!</PopoverAlert>
-			<DownloadButton @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">Save Image</DownloadButton>
+			<DownloadButton class="button" @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">Save Image</DownloadButton>
 			<PopoverAlert ref="copyImagePopover">Copied Image!</PopoverAlert>
-			<DownloadButton @click="captureImage(false); copyImagePopover?.showPopover()">Copy Image</DownloadButton>
+			<DownloadButton class="button" @click="captureImage(false); copyImagePopover?.showPopover()">Copy Image</DownloadButton>
 		</div>
 	</div>
 	<div class="window">
@@ -74,7 +80,7 @@ function updateGlyphset(id: number) {
 <style scoped>
 .window {
 	width: 1200px;
-	margin: 0.75rem 0;
+	margin: 1.5rem 0;
 }
 
 
@@ -88,8 +94,7 @@ function updateGlyphset(id: number) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 20vh;
-	max-height: 30vh;
+	min-height: 25vh;
 	overflow-y: scroll;
 	font-size: 3rem;
 	line-height: 5rem;
@@ -123,6 +128,29 @@ function updateGlyphset(id: number) {
 	align-items: center;
 }
 
+.label-group {
+	font-size: 0.9rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.label-group > label {
+	margin: 0px 5px;
+}
+
+@media only screen and (max-width: 750px) {
+	.button {
+		margin: 0 10px;
+		flex-grow: 2;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.button {
+		width: 100%;
+	}
+}
+
 .text-container {
 	line-height: 0.75lh;
 	text-align: center;
@@ -145,5 +173,11 @@ function updateGlyphset(id: number) {
 
 input:focus, textarea:focus {
 	outline: none;
+}
+
+#transparentToggle {
+	accent-color: rgb(58, 12, 205);
+	width: 20px;
+	height: 20px;
 }
 </style>

@@ -103,11 +103,11 @@ function copy() {
 .translation-area {
 	display: flex;
 	justify-content: center;
-	align-items: space-between;
 	flex-wrap: wrap;
+	margin: 0.75rem 0;
 }
 
 .window {
-	margin: 0.75rem 0;
+	margin: 1rem 0;
 }
 </style>
