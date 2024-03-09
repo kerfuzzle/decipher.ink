@@ -61,6 +61,6 @@ img {
 	}
 	.title {
 		font-size: 1rem
-	};
+	}
 }
 </style>
