@@ -2,7 +2,7 @@
 	"name": "decipher.ink",
 	"icons": [
 		{
-			"src": "/icons-192.png",
+			"src": "/icon-192.png",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
