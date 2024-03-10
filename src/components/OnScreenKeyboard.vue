@@ -82,6 +82,12 @@ button {
 	-ms-transition: all 200ms linear;
 	-o-transition: all 200ms linear;
 	transition: all 200ms linear;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 @media only screen and (max-width: 700px) {
