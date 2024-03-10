@@ -22,6 +22,7 @@ const props = defineProps<{
 .download:hover {
 	background: rgb(58, 12, 205, 0.6);
 	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
 	cursor: pointer;
 }
 

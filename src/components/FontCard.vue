@@ -76,6 +76,7 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	background: rgba(96, 96, 96, 0.15);
 	border: none;
 	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
 }
 
 .glyphFont {

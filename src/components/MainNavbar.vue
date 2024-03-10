@@ -47,6 +47,7 @@ window.onresize = () => {
 	align-items: center;
 	background-color: rgba(255, 255, 255, .15);
 	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 	min-height: 70px;
 	z-index: 5;
 	transition: 0.25s all ease-in-out;

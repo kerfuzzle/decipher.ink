@@ -37,14 +37,14 @@ self.addEventListener('keydown', function(event) {
 		<button v-for="glyph in props.glyphSet.glyphs" :key="glyph.id" @click="emit('input', glyph)">
 			{{ glyph.mappedCharacters[0] }}
 		</button>
-		<button @click="emit('space')" class="specialKey spacebar"/>
-		<button @click="emit('backspace')" class="specialKey">
+		<button @click="emit('space')" class="specialKey spacebar" aria-label="spacebar"/>
+		<button @click="emit('backspace')" class="specialKey" aria-label="backspace">
 			《
 		</button>
-		<button @click="emit('arrow', ArrowDirections.Left)" class="specialKey">
+		<button @click="emit('arrow', ArrowDirections.Left)" class="specialKey" aria-label="left arrow">
 			←
 		</button>
-		<button @click="emit('arrow', ArrowDirections.Right)" class="specialKey">
+		<button @click="emit('arrow', ArrowDirections.Right)" class="specialKey" aria-label="right arrow">
 			→
 		</button>
 	</div>

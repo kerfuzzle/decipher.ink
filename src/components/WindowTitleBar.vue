@@ -22,7 +22,7 @@ const copyPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
 <div class="titleBar">
 	<div class="windowTitleLeft">
 		<div v-if="!props.disableGlyphsetSelector" class="select">
-			<select v-model="selectedScriptId" @change="emit('updateGlyphset', selectedScriptId)">
+			<select v-model="selectedScriptId" @change="emit('updateGlyphset', selectedScriptId)" aria-label="selected script">
 				<option v-for="[key, value] of glyphSets" :key="key" :value="key">{{ value.name }}</option>
 			</select>
 			&#9660;
