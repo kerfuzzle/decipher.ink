@@ -1,6 +1,8 @@
 import './assets/main.css';
-
 import { createApp } from 'vue';
 import App from './App.vue';
+import { onClickOutside } from './utils/onClickOutside';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+app.directive('on-click-outside', onClickOutside);
+app.mount('#app');

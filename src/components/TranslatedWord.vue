@@ -37,10 +37,18 @@ function isOverlap(char: string) {
 	if (!overlap) return false;
 	else return overlap.length > 1;
 }
+
+function closeMenu() {
+	menuOpen.value = false;
+}
+
+function openMenu() {
+	menuOpen.value = true;
+}
 </script>
 
 <template>
-	<div :class="['word', { 'has-permutations': props.hasPermutations && props.permutations.length > 1 }]" @mouseenter="menuOpen = true" @mouseleave="menuOpen = false" @click="menuOpen = !menuOpen">
+	<div :class="['word', { 'has-permutations': props.hasPermutations && props.permutations.length > 1 }]" @mouseenter="openMenu" @mouseleave="closeMenu" @click="menuOpen = !menuOpen" v-on-click-outside="closeMenu">
 		<div v-for="(char, index) in selectedPermutation" :key="index" :class="char === '|' ? 'caret' : 'character'">
 			<div v-if="char === '|'" class="blinking-cursor"/>
 			<div v-else :class="{ 'multi-glyph': isOverlap(char) }">

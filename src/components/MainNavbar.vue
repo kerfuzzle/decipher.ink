@@ -12,10 +12,14 @@ const hamburgerOpen = ref(false);
 window.onresize = () => {
 	if (window.innerWidth) useMobileView.value = window.innerWidth < 800;
 };
+
+function closeMenu() {
+	hamburgerOpen.value = false;
+}
 </script>
 
 <template>
-	<div :class="['navbar', { 'menu-open': hamburgerOpen }, {'sticky': activePath === '/fonts' || activePath == '/about'}]">
+	<div :class="['navbar', { 'menu-open': hamburgerOpen }, {'sticky': activePath === '/fonts' || activePath == '/about'}]" v-on-click-outside="closeMenu">
 		<IconLogo class="logo"/>
 		<AnimatedTitle class="animated-title" title-content="decipher.ink"/>
 		<a v-if="!useMobileView" href="#/" :class="{ 'active': activePath == '/'}">Script → English</a>
@@ -28,10 +32,10 @@ window.onresize = () => {
 			<div/>
 		</div>
 		<div :class="['dropdown', { 'menu-open': useMobileView && hamburgerOpen }]">
-			<a href="#/" :class="{ 'active': activePath == '/'}" @click="hamburgerOpen = false">Script → English</a>
-			<a href="#/generator" :class="{ 'active': activePath == '/generator'}" @click="hamburgerOpen = false">English → Script</a>
-			<a href="#/fonts" :class="{ 'active': activePath == '/fonts'}" @click="hamburgerOpen = false">Fonts</a>
-			<a href="#/about" :class="{ 'active': activePath == '/about'}" @click="hamburgerOpen = false">About</a>
+			<a href="#/" :class="{ 'active': activePath == '/'}" @click="closeMenu">Script → English</a>
+			<a href="#/generator" :class="{ 'active': activePath == '/generator'}" @click="closeMenu">English → Script</a>
+			<a href="#/fonts" :class="{ 'active': activePath == '/fonts'}" @click="closeMenu">Fonts</a>
+			<a href="#/about" :class="{ 'active': activePath == '/about'}" @click="closeMenu">About</a>
 		</div>
 	</div>
 </template>
