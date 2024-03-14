@@ -72,15 +72,6 @@ SLICard {
 	margin-top: 50px;
 }
 
-.footer {
-	position: fixed;
-	left: 0px;
-	bottom: 0px;
-	width: 100%;
-	text-align: center;
-	color: grey;
-}
-
 .animated-title {
 	font-size: 5rem;
 }
@@ -105,8 +96,6 @@ SLICard {
 }
 
 .container {
-	justify-content: center;
-	align-items: center;
 	text-align: center;
 }
 </style>

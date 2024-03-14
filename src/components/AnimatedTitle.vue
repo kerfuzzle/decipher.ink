@@ -56,6 +56,7 @@ defineExpose({
 .title {
 	font-family: Splatfont2;
 	text-align: center;
+	max-height: 1lh;
 }
 
 .titleLetter {

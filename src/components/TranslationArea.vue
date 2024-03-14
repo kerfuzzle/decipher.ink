@@ -102,7 +102,9 @@ function copy() {
 <style scoped>
 .translation-area {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	margin: 0.75rem 0;
 }

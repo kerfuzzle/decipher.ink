@@ -101,6 +101,7 @@ function updateGlyphset(id: number) {
 	word-break: break-all;
 	background-color: transparent;
 	border: 10px solid rgb(151, 151, 151);
+	border-top: 0px;
 	font-family: v-bind('selectedGlyphset.font'), Splatfont2;
 	color: v-bind(textColour);
 	background-color: v-bind(backgroundColour);
@@ -162,6 +163,7 @@ function updateGlyphset(id: number) {
 	width: 100%;
 	min-height: 20vh;
 	border: 10px solid rgb(151, 151, 151);
+	border-top: 0px;
 	border-radius: 0 0 5px 5px;
 	text-align: center;
 	word-break: break-all;

@@ -17,7 +17,7 @@
 
 <style scoped>
 .card {
-	max-width: 30rem;
+	max-width: 800px;
 	margin: 5vh auto 0px;
 	height: 13vh;
 	border: 5px solid white;
