@@ -96,9 +96,9 @@ function updateGlyphset(id: number) {
 	align-items: center;
 	min-height: 25vh;
 	overflow-y: scroll;
-	font-size: 3rem;
-	line-height: 5rem;
-	word-break: break-all;
+	font-size: 2rem;
+	user-select: none;
+	line-height: 3rem;
 	background-color: transparent;
 	border: 10px solid rgb(151, 151, 151);
 	border-top: 0px;
@@ -134,6 +134,7 @@ function updateGlyphset(id: number) {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	column-gap: 10px;
 }
 
 .label-group > label {
