@@ -3,7 +3,7 @@ const SerifScript: GlyphSet = {
 	name: 'Serif Script',
 	font: 'SplatoonSerif',
 	description: 'Serif Script, characterised by its serifs, appears throughout series; most notatably on many of the sunken scrolls.',
-	downloadUrls: { font: '#', cipher: '#' },
+	downloadUrls: { font: '/fonts/SplatoonSerif.ttf', cipher: '/ciphers/SerifScriptCipher.png' },
 	id: 1,
 	glyphs: [
 		{

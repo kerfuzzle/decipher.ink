@@ -3,7 +3,7 @@ const RoundScript: GlyphSet = {
 	name: 'Round Script',
 	font: 'SplatoonRound',
 	description: 'Round script appears in all three games and often used on buildings and signage. Like Alterna Script, many of Round Script\'s glyphs resemble latin characters. The most widely known use of this script is the text on one of Jelfonzo\'s shirts where the text translates to "F*CK YOU"',
-	downloadUrls: { font: '#', cipher: '#' },
+	downloadUrls: { font: '/fonts/SplatoonRound.ttf', cipher: '/ciphers/RoundScriptCipher.png' },
 	id: 3,
 	glyphs: [
 		{

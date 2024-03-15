@@ -3,7 +3,7 @@ const RunicScript: GlyphSet = {
 	name: 'Runic Script',
 	font: 'SplatoonRunic',
 	description: 'Like many of the other scripts deciphering Runic script had been already been attempted. Although it has now been fully deciphered, Runic Script \'X\' was particularly notorious to solve.',
-	downloadUrls: { font: '#', cipher: '#' },
+	downloadUrls: { font: '/fonts/SplatoonRunic.ttf', cipher: '/ciphers/RunicScriptCipher.png' },
 	id: 5,
 	glyphs: [
 		{

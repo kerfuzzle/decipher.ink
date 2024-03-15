@@ -3,7 +3,7 @@ const HalfmoonScript: GlyphSet = {
 	name: 'Halfmoon Script',
 	font: 'SplatoonHalfmoon',
 	description: 'Halfmoon is commonly used for headings and titles on articles and signs, for example the in-game version of Haikara Walker on the deepsea metro and as a locker decoration.',
-	downloadUrls: { font: '#', cipher: '#' },
+	downloadUrls: { font: '/fonts/SplatoonHalfmoon.ttf', cipher: '/ciphers/HalfmoonScriptCipher.png' },
 	id: 6,
 	glyphs: [
 		{
