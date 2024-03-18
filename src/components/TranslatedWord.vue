@@ -100,7 +100,7 @@ function openMenu() {
 	overflow-y: scroll;
 	text-align: center;
 	position: absolute;
-	top: 65px;
+	top: 1lh;
 	padding: 3px;
 	background: white;
 	border-radius: 3px;
