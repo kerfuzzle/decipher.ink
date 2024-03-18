@@ -20,7 +20,7 @@ const HalfmoonScript: GlyphSet = {
 		},
 		{
 			id: 3,
-			mappedCharacters: ['D', 'G', 'V'],
+			mappedCharacters: ['D', 'T'],
 		},
 		{
 			id: 4,
@@ -32,42 +32,46 @@ const HalfmoonScript: GlyphSet = {
 		},
 		{
 			id: 6,
-			mappedCharacters: ['I', 'W'],
+			mappedCharacters: ['G', 'V'],
 		},
 		{
 			id: 7,
-			mappedCharacters: ['J', 'X'],
+			mappedCharacters: ['I', 'W'],
 		},
 		{
 			id: 8,
-			mappedCharacters: ['K', 'Y'],
+			mappedCharacters: ['J', 'X'],
 		},
 		{
 			id: 9,
-			mappedCharacters: ['L', 'Z'],
+			mappedCharacters: ['K', 'Y'],
 		},
 		{
 			id: 10,
-			mappedCharacters: ['N'],
+			mappedCharacters: ['L', 'Z'],
 		},
 		{
 			id: 11,
-			mappedCharacters: ['O'],
+			mappedCharacters: ['N'],
 		},
 		{
 			id: 12,
-			mappedCharacters: ['P'],
+			mappedCharacters: ['O'],
 		},
 		{
 			id: 13,
-			mappedCharacters: ['Q'],
+			mappedCharacters: ['P'],
 		},
 		{
 			id: 14,
-			mappedCharacters: ['R'],
+			mappedCharacters: ['Q'],
 		},
 		{
 			id: 15,
+			mappedCharacters: ['R'],
+		},
+		{
+			id: 16,
 			mappedCharacters: ['T'],
 		},
 	],
