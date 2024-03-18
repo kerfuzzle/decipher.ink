@@ -18,7 +18,7 @@ import SLICard from '../components/SLICard.vue';
 			A site for translating Splatoon scripts!
 		</div>
 		<div class="description subDescription">
-			Follow development & me here
+			Follow development & me here. I'd love to hear your thoughts on the site!
 		</div>
 	</div>
 	<SocialsBar class="socials">

@@ -6,6 +6,7 @@ import PopoverAlert from './PopoverAlert.vue';
 const props = withDefaults(defineProps<{
 	title: string,
 	font: string,
+	warningMessage?: string,
 	disableGlyphsetSelector?: boolean,
 	disableCopyButton?: boolean,
 }>(), { disableGlyphsetSelector: false, disableCopyButton: false });
@@ -31,6 +32,7 @@ const copyPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
 		<span class="translatedTitle">{{ props.title }}</span>
 	</div>
 	<div class="windowTitleRight">
+		<slot></slot>
 		<button v-if="!props.disableCopyButton" @click="emit('copy'); copyPopover?.showPopover()">
 			<PopoverAlert ref="copyPopover">Copied Successfully</PopoverAlert>
 			Copy Text

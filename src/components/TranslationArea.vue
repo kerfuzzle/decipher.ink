@@ -22,6 +22,12 @@ const currentPermutations = computed(() => {
 	});
 });
 
+const totalPermutations = computed(() => {
+	let total = 0;
+	currentPermutations.value.forEach(permutations => total += permutations.length);
+	return total;
+});
+
 
 const recursePermutations = memoize((text: string, glyphSet: GlyphSet): string[] => {
 	const newPermutations: string[] = [];
@@ -88,7 +94,9 @@ function copy() {
 <template>
 	<div class="translation-area">
 		<div class="window">
-			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy"/>
+			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy">
+				{{ totalPermutations }}
+			</WindowTitleBar>
 			<TextArea :words="currentPermutations" title="English" font="Splatfont2" :has-permutations="true" ref="englishTextArea"/>
 		</div>
 		<div class="window">
