@@ -9,10 +9,12 @@ const props = withDefaults(defineProps<{
 	warningMessage?: string,
 	disableGlyphsetSelector?: boolean,
 	disableCopyButton?: boolean,
-}>(), { disableGlyphsetSelector: false, disableCopyButton: false });
+	disableClearButton?: boolean,
+}>(), { disableGlyphsetSelector: false, disableCopyButton: false, disableClearButton: false });
 const emit = defineEmits<{
 	updateGlyphset: [id: number],
 	copy: [],
+	clear: [],
 }>();
 
 const selectedScriptId = ref(0);
@@ -32,10 +34,12 @@ const copyPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
 		<span class="translatedTitle">{{ props.title }}</span>
 	</div>
 	<div class="windowTitleRight">
-		<slot></slot>
 		<button v-if="!props.disableCopyButton" @click="emit('copy'); copyPopover?.showPopover()">
 			<PopoverAlert ref="copyPopover">Copied Successfully</PopoverAlert>
 			Copy Text
+		</button>
+		<button v-if="!props.disableClearButton" @click="emit('clear')">
+			Clear
 		</button>
 		<div>&#xE067;</div>
 		<div>&#xE063;</div>

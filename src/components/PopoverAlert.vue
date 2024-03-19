@@ -30,6 +30,7 @@ defineExpose({
 	opacity: 0;
 	transition: 0.25s all ease-in-out;
 	height: 0px;
+	pointer-events: none;
 }
 
 .popover.active {

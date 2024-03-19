@@ -45,7 +45,7 @@ function updateGlyphset(id: number) {
 
 <template>
 	<div class="window">
-		<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" :disable-copy-button="true" @update-glyphset="updateGlyphset"/>
+		<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" :disable-copy-button="true" @update-glyphset="updateGlyphset" :disable-clear-button="true"/>
 		<div :class="['output-area', { 'transparency-checkerboard': transparentBackground }]">
 			<div class="text-container" ref="textContainer">
 				{{ currentText }}
@@ -71,7 +71,7 @@ function updateGlyphset(id: number) {
 		</div>
 	</div>
 	<div class="window">
-		<WindowTitleBar class="titleBar" title="Input" font="Splatfont2" :disable-copy-button="true" :disable-glyphset-selector="true"/>
+		<WindowTitleBar class="titleBar" title="Input" font="Splatfont2" :disable-copy-button="true" :disable-glyphset-selector="true" @clear="currentText = ''"/>
 		<textarea class="input-area" autofocus="true" spellcheck="false" v-model="currentText"/>
 	</div>
 
@@ -162,7 +162,7 @@ function updateGlyphset(id: number) {
 .input-area {
 	resize: none;
 	width: 100%;
-	min-height: 20vh;
+	min-height: 25vh;
 	border: 10px solid rgb(151, 151, 151);
 	border-top: 0px;
 	border-radius: 0 0 5px 5px;

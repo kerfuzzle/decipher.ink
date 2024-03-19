@@ -93,14 +93,15 @@ function copy() {
 
 <template>
 	<div class="translation-area">
+		<div v-if="totalPermutations > 10000" class="warning">
+			Warning: The high number of permutations ({{ totalPermutations }}) might cause this tab to become laggy and eventually crash.
+		</div>
 		<div class="window">
-			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy">
-				{{ totalPermutations }}
-			</WindowTitleBar>
+			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy" @clear="currentText = ''; caretPosition = 0"/>
 			<TextArea :words="currentPermutations" title="English" font="Splatfont2" :has-permutations="true" ref="englishTextArea"/>
 		</div>
 		<div class="window">
-			<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" @update-glyphset="updateGlyphset" :disable-copy-button="true"/>
+			<WindowTitleBar :title="selectedGlyphset.name" :font="selectedGlyphset.font" @update-glyphset="updateGlyphset" :disable-copy-button="true" :disable-clear-button="true"/>
 			<TextArea :words="currentPermutations" :caret-position="caretPosition" :font="selectedGlyphset.font"/>
 		</div>
 		<OnScreenKeyboard :glyphSet="selectedGlyphset" @input="registerInput" @space="registerSpace" @backspace="registerBackspace" @delete="registerDelete" @arrow="registerArrow"/>
@@ -119,5 +120,10 @@ function copy() {
 
 .window {
 	margin: 1rem 0;
+}
+
+.warning {
+	font-size: 0.7rem;
+	text-align: center;
 }
 </style>
