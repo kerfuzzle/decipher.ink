@@ -5,7 +5,7 @@
 	</svg>
 </template>
 
-<style>
+<style scoped>
 .a {
 	fill:#d0be08
 }

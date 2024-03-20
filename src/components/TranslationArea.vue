@@ -7,6 +7,7 @@ import type { Glyph, GlyphSet } from '@/typings/glyphs';
 import { glyphSets } from '@/glyphSets/glyphSets';
 import { SquareScript } from '@/glyphSets/squareScript';
 import { memoize } from '@/utils/memoize';
+import IconWarning from '@/assets/icons/IconWarning.vue';
 enum ArrowDirections {
 	Left, Right
 }
@@ -94,7 +95,9 @@ function copy() {
 <template>
 	<div class="translation-area">
 		<div v-if="totalPermutations > 10000" class="warning">
-			Warning: The high number of permutations ({{ totalPermutations }}) might cause this tab to become laggy and eventually crash.
+			<IconWarning width="60" height="60"/>
+			<div>Warning: The high number of permutations ({{ totalPermutations }}) might cause this tab to become laggy and eventually crash.</div>
+			<IconWarning width="60" height="60"/>
 		</div>
 		<div class="window">
 			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy" @clear="currentText = ''; caretPosition = 0"/>
@@ -125,5 +128,8 @@ function copy() {
 .warning {
 	font-size: 0.7rem;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 </style>
