@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { GlyphSet } from '@/typings/glyphs';
-import { computed, inject, ref, watch, type Ref } from 'vue';
+import { selectedGlyphsetInjectionKey } from '@/utils/keys';
+import { computed, inject, ref, watch } from 'vue';
 
 defineExpose({
 	getCurrentSelectedPermutation,
@@ -13,7 +13,7 @@ const props = defineProps<{
 
 const selectedPermutationIndex = ref(0);
 const menuOpen = ref(false);
-const selectedGlyphset = inject<Ref<GlyphSet>>('selectedGlyphset');
+const selectedGlyphset = inject(selectedGlyphsetInjectionKey);
 const selectedPermutation = computed(() => {
 	if (!props.permutations.length) {
 		if (props.caretPosition !== undefined) return ['|'];

@@ -4,7 +4,8 @@ import ScriptToEnglish from './views/ScriptToEnglish.vue';
 import EnglishToScript from './views/EnglishToScript.vue';
 import AboutPage from './views/AboutPage.vue';
 import FontDownloadPage from './views/FontDownloadPage.vue';
-import { computed, ref } from 'vue';
+import { computed, provide, ref } from 'vue';
+import { screenWidthInjectionKey } from './utils/keys';
 
 const routes: {[index: string]: any} = {
 	'/':  ScriptToEnglish,
@@ -21,6 +22,13 @@ window.addEventListener('hashchange', () => {
 const currentView = computed(() => {
 	return routes[currentPath.value.slice(1) || '/'] || ScriptToEnglish;
 });
+
+const screenWidth = ref(window.innerWidth);
+window.onresize = () => {
+	if (window.innerWidth) screenWidth.value = window.innerWidth;
+};
+
+provide(screenWidthInjectionKey, screenWidth);
 </script>
 
 <template>

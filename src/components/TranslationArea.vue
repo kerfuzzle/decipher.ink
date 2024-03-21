@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue';
+import { computed, inject, provide, ref } from 'vue';
 import OnScreenKeyboard from './OnScreenKeyboard.vue';
 import TextArea from './TextArea.vue';
 import WindowTitleBar from './WindowTitleBar.vue';
@@ -8,6 +8,7 @@ import { glyphSets } from '@/glyphSets/glyphSets';
 import { SquareScript } from '@/glyphSets/squareScript';
 import { memoize } from '@/utils/memoize';
 import IconWarning from '@/assets/icons/IconWarning.vue';
+import { screenWidthInjectionKey, selectedGlyphsetInjectionKey } from '@/utils/keys';
 enum ArrowDirections {
 	Left, Right
 }
@@ -15,7 +16,8 @@ enum ArrowDirections {
 const currentText = ref('');
 const caretPosition = ref(0);
 const selectedGlyphset = ref(SquareScript);
-provide('selectedGlyphset', selectedGlyphset);
+provide(selectedGlyphsetInjectionKey, selectedGlyphset);
+const screenWidth = inject(screenWidthInjectionKey);
 const englishTextArea = ref<InstanceType<typeof TextArea> | null>(null);
 const currentPermutations = computed(() => {
 	return currentText.value.split(' ').map(word => {
@@ -97,7 +99,7 @@ function copy() {
 		<div v-if="totalPermutations > 10000" class="warning">
 			<IconWarning width="60" height="60"/>
 			<div>Warning: The high number of permutations ({{ totalPermutations }}) might cause this tab to become laggy and eventually crash.</div>
-			<IconWarning width="60" height="60"/>
+			<IconWarning v-if="screenWidth! > 600" width="60" height="60"/>
 		</div>
 		<div class="window">
 			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy" @clear="currentText = ''; caretPosition = 0"/>

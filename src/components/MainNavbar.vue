@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import IconLogo from '../assets/icons/IconLogo.vue';
 import AnimatedTitle from './AnimatedTitle.vue';
+import { screenWidthInjectionKey } from '@/utils/keys';
 
 withDefaults(defineProps<{
 	activePath?: string,
 }>(), { activePath: '/' });
 
-const useMobileView = ref(window.innerWidth < 800);
+const screenWidth = inject(screenWidthInjectionKey);
+
+const useMobileView = computed(() => {
+	if (!screenWidth) return false;
+	return screenWidth.value < 800;
+});
 const hamburgerOpen = ref(false);
-window.onresize = () => {
-	if (window.innerWidth) useMobileView.value = window.innerWidth < 800;
-};
 
 function closeMenu() {
 	hamburgerOpen.value = false;
