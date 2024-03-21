@@ -96,10 +96,10 @@ function copy() {
 
 <template>
 	<div class="translation-area">
-		<div v-if="totalPermutations > 10000" class="warning">
-			<IconWarning width="60" height="60"/>
-			<div>Warning: The high number of permutations ({{ totalPermutations }}) might cause this tab to become laggy and eventually crash.</div>
+		<div v-if="totalPermutations > 8000" class="warning">
 			<IconWarning v-if="screenWidth! > 600" width="60" height="60"/>
+			<div>Warning: The high number of permutations ({{ totalPermutations }}) might cause this tab to become laggy and eventually crash.</div>
+			<IconWarning v-if="screenWidth! > 1000" width="60" height="60"/>
 		</div>
 		<div class="window">
 			<WindowTitleBar title="English" font="Splatfont2" :disable-glyphset-selector='true' @copy="copy" @clear="currentText = ''; caretPosition = 0"/>
@@ -128,10 +128,15 @@ function copy() {
 }
 
 .warning {
-	font-size: 0.7rem;
+	font-size: 0.75rem;
 	text-align: center;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
+	background-image: linear-gradient(45deg, #d0be08 25%, #bdad00 25%, #bdad00 50%, #d0be08 50%, #d0be08 75%, #bdad00 75%, #bdad00 100%);
+	background-size: 56.57px 56.57px;
+	padding: 15px;
+	border-radius: 20px;
+	width: 85%
 }
 </style>
