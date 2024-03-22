@@ -17,6 +17,8 @@ const props = defineProps<{
 	color: white;
 	white-space: nowrap;
 	text-align: center;
+	display: flex;
+	justify-content: center
 }
 
 .download:hover {

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-	<a href="https://twitter.com/splatoonloreink" class="card">
+	<a href="https://twitter.com/splatoonloreink" target="_blank" rel="noopener noreferrer" class="card">
 		<img src="/SLILogo.webp"/>
 		<div class="title">
 			<div>

@@ -64,10 +64,14 @@ function updateGlyphset(id: number) {
 				<label for="transparentToggle">Transparent Background</label>
 				<input id="transparentToggle" type="checkbox" v-model="transparentBackground"/>
 			</div>
-			<PopoverAlert ref="saveImagePopover">Saving Image!</PopoverAlert>
-			<DownloadButton class="button" @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">Save Image</DownloadButton>
-			<PopoverAlert ref="copyImagePopover">Copied Image!</PopoverAlert>
-			<DownloadButton class="button" @click="captureImage(false); copyImagePopover?.showPopover()">Copy Image</DownloadButton>
+			<DownloadButton class="button" @click="captureImage(true); saveImagePopover?.showPopover()" file-format=".png">
+				<PopoverAlert ref="saveImagePopover">Saving Image!</PopoverAlert>
+				Save Image
+			</DownloadButton>
+			<DownloadButton class="button" @click="captureImage(false); copyImagePopover?.showPopover()">
+				<PopoverAlert ref="copyImagePopover">Copied Image!</PopoverAlert>
+				Copy Image
+			</DownloadButton>
 		</div>
 	</div>
 	<div class="window">

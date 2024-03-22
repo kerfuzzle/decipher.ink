@@ -36,6 +36,6 @@ defineExpose({
 .popover.active {
 	background-color: white;
 	height: auto;
-	transform: translate3d(0, -3lh, 0);
+	transform: translate3d(0, -2lh, 0);
 	opacity: 1;
 }</style>
