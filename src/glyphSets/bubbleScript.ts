@@ -4,6 +4,7 @@ const BubbleScript: GlyphSet = {
 	font: 'SplatoonBubble',
 	description: 'Bubble script appears in all three games but is used relatively little, although it is often used to for transcribing spoken Inkling.',
 	downloadUrls: { font: '/fonts/SplatoonBubble.ttf', cipher: '/ciphers/BubbleScriptCipher.png' },
+	credit: { font: '@ardnin_', cipher: '@rassicas' },
 	id: 4,
 	glyphs: [
 		{

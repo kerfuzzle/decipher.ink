@@ -4,6 +4,7 @@ const TemplateScript: GlyphSet = {
 	font: 'UPDATE ME!',
 	description: 'Quibusdam corporis aut labore est aut dolor reiciendis numquam. Voluptatem debitis id ut enim accusantium. Dolores aliquam veritatis provident sit. Sed reprehenderit omnis necessitatibus autem temporibus. Vero at et voluptatem voluptatem omnis labore quae.',
 	downloadUrls: { font: '#', cipher: '#' },
+	credit: { font: '', cipher: '' },
 	id: 0, // UPDATE ME!
 	glyphs: [
 		{

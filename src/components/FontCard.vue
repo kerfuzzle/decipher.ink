@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import type { GlyphSet } from '@/typings/glyphs';
 import DownloadButton from './DownloadButton.vue';
+import PopoverAlert from './PopoverAlert.vue';
+import { ref } from 'vue';
 
 const props = defineProps<{
 	glyphSet: GlyphSet;
 }>();
+
+const fontCreditPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
+const cipherCreditPopover = ref<InstanceType<typeof PopoverAlert> | null>(null);
 
 const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharacters.length > 1);
 </script>
@@ -24,8 +29,14 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 			Overlapping Characters: None!
 		</div>
 		<div class="buttonGroup">
-			<DownloadButton :href="glyphSet.downloadUrls.font" file-format=".ttf">Download Font</DownloadButton>
-			<DownloadButton :href="glyphSet.downloadUrls.cipher" file-format=".png">Download Cipher</DownloadButton>
+			<DownloadButton :href="glyphSet.downloadUrls.font" file-format=".ttf" @mouseenter="fontCreditPopover?.showPopover()">
+				<PopoverAlert ref="fontCreditPopover">Credit: {{ glyphSet.credit.font }}</PopoverAlert>
+				Download Font
+			</DownloadButton>
+			<DownloadButton :href="glyphSet.downloadUrls.cipher" file-format=".png" @mouseenter="cipherCreditPopover?.showPopover()">
+				<PopoverAlert ref="cipherCreditPopover">Credit: {{ glyphSet.credit.cipher }}</PopoverAlert>
+				Download Cipher
+			</DownloadButton>
 		</div>
 	</div>
 </template>
@@ -44,9 +55,6 @@ const overlappingSets = props.glyphSet.glyphs.filter(glyph => glyph.mappedCharac
 	padding: 15px;
 	border: 7px solid rgb(151, 151, 151);
 	border-radius: 15px;
-	-webkit-transition: 250ms linear;
-	-ms-transition: 250ms linear;
-	transition: 250ms linear;
 	background-size: 225px;
 	background-image: url('/respawnIconBackground.png');
 	@supports (background-image: url('/respawnIconBackground.webp')) {

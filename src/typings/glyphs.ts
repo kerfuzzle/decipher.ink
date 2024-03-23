@@ -9,5 +9,6 @@ export type GlyphSet = {
 	font: string;
 	description: string;
 	downloadUrls: { font: string, cipher: string };
-	glyphs: Glyph[]
+	credit: { font: string, cipher: string };
+	glyphs: Glyph[];
 }
