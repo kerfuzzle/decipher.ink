@@ -71,7 +71,6 @@ button {
 	border-radius: 3px;
 	cursor: pointer;
 	font-family: inherit;
-	line-height: 0.75rem;
 	color: black;
 	display: flex;
 	justify-content: center

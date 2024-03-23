@@ -17,7 +17,7 @@
 
 <style scoped>
 .card {
-	max-width: 800px;
+	max-width: 700px;
 	margin: 5vh auto 0px;
 	height: 13vh;
 	border: 5px solid white;
@@ -44,6 +44,7 @@
 	font-family: Sylfaen, Splatfont2;
 	font-size: 1.2em;
 	margin: 0px 3px;
+	display: inline-block;
 }
 
 img {
@@ -51,9 +52,9 @@ img {
 	flex-shrink: 2;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
 	.card {
-		max-width: 20rem;
+		max-width: 95%;
 		overflow: hidden;
 	}
 	.subtitle {

@@ -143,7 +143,7 @@ function openMenu() {
 
 .blinking-cursor {
 	width: 2px;
-	height: 40px;
+	height: 2rem;
 	background-color: black;
 	animation: blink 1s step-end infinite;
 	-webkit-animation: blink 1s step-end infinite;
