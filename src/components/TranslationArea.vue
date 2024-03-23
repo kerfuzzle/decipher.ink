@@ -34,9 +34,9 @@ const totalPermutations = computed(() => {
 
 const recursePermutations = memoize((text: string, glyphSet: GlyphSet): string[] => {
 	const newPermutations: string[] = [];
-	const glyph = glyphSet.glyphs.find(g => g.mappedCharacters.includes(text.charAt(0)));
+	const glyph = glyphSet.glyphs.find(g => g.mappedCharacters[0] === text.charAt(0));
+	if (text.length === 1) return glyph?.mappedCharacters || [];
 	const permutations: string[] = glyph?.mappedCharacters.map(newChar => newChar + text.substring(1)) || [];
-	if (text.length === 1) return permutations;
 	permutations.forEach(permutation => {
 		recursePermutations(permutation.substring(1), glyphSet).forEach(newPermutation => {
 			newPermutations.push(permutation.charAt(0) + newPermutation);
