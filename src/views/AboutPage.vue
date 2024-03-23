@@ -18,7 +18,7 @@ import SLICard from '../components/SLICard.vue';
 			A site for translating Splatoon scripts!
 		</div>
 		<div class="description subDescription">
-			Follow development & me here. I'd love to hear your thoughts on the site!
+			I'd love to hear what you thought about the site! Follow development & me here:
 		</div>
 	</div>
 	<SocialsBar class="socials">
@@ -37,7 +37,7 @@ import SLICard from '../components/SLICard.vue';
 	</SocialsBar>
 	<div class = "container">
 		<div class="description subDescription">
-			The cool people that deciphered and contributed to finding these scripts
+			The cool people that deciphered these scripts:
 		</div>
 		<SocialsBar class="socials">
 			<SocialsItem url="https://twitter.com/ardnin_" name="@ardnin_">
@@ -50,6 +50,9 @@ import SLICard from '../components/SLICard.vue';
 				<IconTwitter/>
 			</SocialsItem>
 			<SocialsItem url="https://twitter.com/splattershot_jr" name="@splattershot_jr">
+				<IconTwitter/>
+			</SocialsItem>
+			<SocialsItem url="https://twitter.com/cack1e" name="@cack1e">
 				<IconTwitter/>
 			</SocialsItem>
 			<SocialsItem url="https://jacebeleren.tumblr.com/" name="jacebeleren">
@@ -74,6 +77,7 @@ SLICard {
 
 .animated-title {
 	font-size: 5rem;
+	margin-top: 4.5vh;
 }
 
 @media only screen and (max-width: 600px) {
