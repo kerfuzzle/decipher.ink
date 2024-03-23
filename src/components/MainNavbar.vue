@@ -75,14 +75,28 @@ function closeMenu() {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0px 10px;
+	margin: 0px 15px;
 }
+
 .hamburger-button > * {
 	width: 30px;
 	height: 4px;
 	border-radius: 2px;
 	background-color: white;
-	transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+	transition: all 0.5s cubic-bezier(0.9, 0, 0.1, 1);
+}
+
+.hamburger-button.menu-open > *:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-button.menu-open > *:nth-child(2) {
+	transform: scale(0.2);
+	opacity: 0;
+}
+
+.hamburger-button.menu-open > *:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
 }
 
 .dropdown {
@@ -126,6 +140,7 @@ function closeMenu() {
 .logo {
 	margin: 0px 10px;
 }
+
 .navbar > a.active {
 	color: white;
 	padding: 0px 10px;
