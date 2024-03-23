@@ -34,20 +34,16 @@ const totalPermutations = computed(() => {
 
 const recursePermutations = memoize((text: string, glyphSet: GlyphSet): string[] => {
 	const newPermutations: string[] = [];
-	const glyph = glyphSet.glyphs.find(g => g.mappedCharacters.includes(text.substring(0, 1)));
-	const permutations: string[] = glyph?.mappedCharacters.map(newChar => replaceAt(text, 0, newChar)) || [];
+	const glyph = glyphSet.glyphs.find(g => g.mappedCharacters.includes(text.charAt(0)));
+	const permutations: string[] = glyph?.mappedCharacters.map(newChar => newChar + text.substring(1)) || [];
 	if (text.length === 1) return permutations;
 	permutations.forEach(permutation => {
 		recursePermutations(permutation.substring(1), glyphSet).forEach(newPermutation => {
-			newPermutations.push(permutation.substring(0, 1) + newPermutation);
+			newPermutations.push(permutation.charAt(0) + newPermutation);
 		});
 	});
 	return newPermutations;
 });
-
-function replaceAt(string: string, index: number, replacement: string) {
-	return string.substring(0, index) + replacement + string.substring(index + replacement.length);
-}
 
 function registerInput(glyph: Glyph) {
 	currentText.value = currentText.value.slice(0, caretPosition.value) + glyph.mappedCharacters[0] + currentText.value.slice(caretPosition.value);;
