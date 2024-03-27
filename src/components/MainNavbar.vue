@@ -83,7 +83,7 @@ function closeMenu() {
 	height: 4px;
 	border-radius: 2px;
 	background-color: white;
-	transition: all 0.5s cubic-bezier(0.9, 0, 0.1, 1);
+	transition: all 0.25s cubic-bezier(0.9, 0, 0.1, 1);
 }
 
 .hamburger-button.menu-open > *:nth-child(1) {
