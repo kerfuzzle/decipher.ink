@@ -1,134 +1,63 @@
 <script setup lang="ts">
-import SocialsBar from './components/SocialsBar.vue';
-import SocialsItem from './components/SocialsItem.vue';
-import IconTwitter from './assets/icons/IconTwitter.vue';
-import IconGitHub from './assets/icons/IconGitHub.vue';
-import IconGit from './assets/icons/IconGit.vue';
-import IconTumblr from './assets/icons/IconTumblr.vue';
-import IconBlogger from './assets/icons/IconBlogger.vue';
-import { ref } from 'vue';
+import MainNavbar from './components/MainNavbar.vue';
+import ScriptToEnglish from './views/ScriptToEnglish.vue';
+import EnglishToScript from './views/EnglishToScript.vue';
+import AboutPage from './views/AboutPage.vue';
+import FontDownloadPage from './views/FontDownloadPage.vue';
+import { computed, provide, ref } from 'vue';
+import { screenWidthInjectionKey } from './utils/keys';
 
+const routes: {[index: string]: any} = {
+	'/':  ScriptToEnglish,
+	'/generator': EnglishToScript,
+	'/fonts': FontDownloadPage,
+	'/about': AboutPage,
+};
 
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const titleContent = 'decipher.ink';
-const fonts = ['SplatoonAlterna', 'SplatoonBold', 'SplatoonBubble', 'SplatoonHalfmoon', 'SplatoonRunic', 'SplatoonSerif', 'SplatoonSign', 'SplatoonSquare'];
-let id = 0;
-const titleLetters = ref(titleContent.split('').map(char => {
-	return { id: id++, char: char, font: 'Splatfont2' };
-}));
+const currentPath = ref(window.location.hash);
+window.addEventListener('hashchange', () => {
+	currentPath.value = window.location.hash;
+});
 
-let isTranslating = false;
-function translateTitle(intoCipher: boolean) {
-	let target = 'splatfont2';
-	if (intoCipher) target = fonts[Math.floor(Math.random() * fonts.length)];
-	let iterations = 0;
-	if (isTranslating) return;
-	isTranslating = true;
-	const interval = setInterval(() => {
-		for (let i = 0; i < titleLetters.value.length; i++) {
-			const letter = titleLetters.value[i];
-			if (i < iterations) {
-				letter.char = titleContent[i];
-				letter.font = target;
-			}
-			else {
-				letter.char = alphabet[Math.floor(Math.random() * 26)];
-			}
-		}
-		if (iterations >= titleContent.length) {
-			clearInterval(interval);
-			isTranslating = false;
-		}
-		iterations += 1;
-	}, 35);
-}
+const currentView = computed(() => {
+	return routes[currentPath.value.slice(1) || '/'] || ScriptToEnglish;
+});
+
+const screenWidth = ref(window.innerWidth);
+window.onresize = () => {
+	if (window.innerWidth) screenWidth.value = window.innerWidth;
+};
+
+provide(screenWidthInjectionKey, screenWidth);
 </script>
 
 <template>
-	<div class="container">
-		<div class="title" @mouseenter="translateTitle(true)" @mouseleave="translateTitle(false)">
-			<div class="titleLetter" v-for="letter in titleLetters" :key="letter.id" :style="`font-family: ${letter.font}`">
-				{{letter.char}}
-			</div>
-		</div>
-		<div class="description">
-			A work in progress site for translating Splatoon scripts.
-		</div>
-		<div class="description subDescription">
-			Follow development here
-		</div>
-	</div>
-	<SocialsBar>
-		<SocialsItem url="https://twitter.com/kerfuzzle_" name="@kerfuzzle_">
-			<IconTwitter/>
-		</SocialsItem>
-		<SocialsItem url="https://github.com/kerfuzzle" name="kerfuzzle">
-			<IconGitHub/>
-		</SocialsItem>
-		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="repository">
-			<IconGit/>
-		</SocialsItem>
-	</SocialsBar>
-	<div class = "container">
-		<div class="description subDescription">
-			The cool people that deciphered these scripts
-		</div>
-		<SocialsBar>
-			<SocialsItem url="https://twitter.com/ardnin_" name="@ardnin_">
-				<IconTwitter/>
-			</SocialsItem>
-			<SocialsItem url="https://twitter.com/rassicas" name="@rassicas">
-				<IconTwitter/>
-			</SocialsItem>
-			<SocialsItem url="https://twitter.com/cosmo_splt" name="@cosmo_splt">
-				<IconTwitter/>
-			</SocialsItem>
-			<SocialsItem url="https://twitter.com/splattershot_jr" name="@splattershot_jr">
-				<IconTwitter/>
-			</SocialsItem>
-			<SocialsItem url="https://jacebeleren.tumblr.com/" name="jacebeleren">
-				<IconTumblr/>
-			</SocialsItem>
-			<SocialsItem url="https://inklanguage.blogspot.com/" name="alalehaz">
-				<IconBlogger/>
-			</SocialsItem>
-		</SocialsBar>
+	<MainNavbar :active-path="currentPath.slice(1) || '/'"/>
+	<div class="view-container">
+		<component :is="currentView"/>
 	</div>
 	<div class="footer">
-		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners.
+		This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners. <a href="https://github.com/kerfuzzle/decipher.ink/issues">Report a bug</a>
 	</div>
 </template>
 
 <style scoped>
 .footer {
-	position: fixed;
+	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	width: 100%;
+	font-size: 0.7rem;
 	text-align: center;
 	color: grey;
 }
-.title {
-	font-size: 5vmax;
-	font-family: Splatfont2;
-	text-align: center;
-	height: 150px
+
+.view-container {
+	max-width: 100%;
+	margin: 70px 0px 30px;
 }
 
-.titleLetter {
-	display: inline;
-}
-.description {
-	margin: 15px;
-	font-size: 1.5vmax
-}
-
-.subDescription {
-	font-size: 15px;
-}
-.container {
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+a {
+	text-decoration: underline;
 }
 </style>

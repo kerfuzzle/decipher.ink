@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-<a :href="props.url">
+<a :href="props.url" target="_blank" rel="noopener noreferrer">
 	<div class="inline">
 		<slot/>
 	</div>
