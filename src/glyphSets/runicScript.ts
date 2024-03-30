@@ -61,30 +61,26 @@ const RunicScript: GlyphSet = {
 		},
 		{
 			id: 13,
-			mappedCharacters: ['N'],
-		},
-		{
-			id: 14,
 			mappedCharacters: ['O', 'Z'],
 		},
 		{
-			id: 15,
+			id: 14,
 			mappedCharacters: ['P'],
 		},
 		{
-			id: 16,
+			id: 15,
 			mappedCharacters: ['Q'],
 		},
 		{
-			id: 17,
+			id: 16,
 			mappedCharacters: ['R'],
 		},
 		{
-			id: 18,
+			id: 17,
 			mappedCharacters: ['S'],
 		},
 		{
-			id: 19,
+			id: 18,
 			mappedCharacters: ['T'],
 		},
 	],
