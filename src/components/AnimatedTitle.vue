@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { screenWidthInjectionKey } from '@/utils/keys';
+import { inject, ref } from 'vue';
 
 const props = defineProps<{
 	titleContent: string;
@@ -12,12 +13,14 @@ const titleLetters = ref(props.titleContent.split('').map(char => {
 	return { id: id++, char: char, font: 'Splatfont2' };
 }));
 
+const screenWidth = inject(screenWidthInjectionKey);
+
 let isTranslating = false;
 function translateTitle(intoCipher: boolean) {
 	let target = 'splatfont2';
 	if (intoCipher) target = fonts[Math.floor(Math.random() * fonts.length)];
 	let iterations = 0;
-	if (isTranslating) return;
+	if (isTranslating || !screenWidth || screenWidth.value < 800) return;
 	isTranslating = true;
 	const interval = setInterval(() => {
 		for (let i = 0; i < titleLetters.value.length; i++) {
