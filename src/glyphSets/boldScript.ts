@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const BoldScript: GlyphSet = {
 	name: 'Bold Script',
 	font: 'SplatoonBold',
-	description: 'Bold script appears in all three games and is commonly used on clothes, weapons, and notably the back of the amiibo boxes. It is commonly used for mimicry, for example, the team name on the Splatfest Tee. Bold scripts has the most glyphs out of all the scripts due to it having both uppercase and lowercase characters.',
+	description: 'Bold script appears in all three games and is commonly used on clothes, weapons, and notably the back of the amiibo boxes. Bold scripts has the most glyphs out of all the scripts due to it having both uppercase and lowercase characters.',
 	downloadUrls: { font: '/fonts/SplatoonBold.ttf', cipher: '/ciphers/BoldScriptCipher.png' },
 	credit: { font: 'frozenpandaman, @ardnin_', cipher: '@rassicas, @splattershot_jr' },
 	id: 2,

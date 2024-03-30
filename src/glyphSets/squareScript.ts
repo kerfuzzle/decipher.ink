@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const SquareScript: GlyphSet = {
 	name: 'Square Script',
 	font: 'SplatoonSquare',
-	description: 'Square script appears in all three games and is used in a variety of situations, often for large blocks of text. There are some glyphs in game that resemble Square Script glyphs but do not map to any characters at all so it is important to keep this in mind when deciphering. Most of its cipher was solved using Sunken Scroll 24 from Splatoon 1.',
+	description: 'Square script appears in all three games and is used in a variety of situations, often for large blocks of text. Some glyphs in-game resemble Square Script glyphs but do not map to any characters, so it is important to keep this in mind when deciphering. Most of its cipher was solved using Sunken Scroll 24 from Splatoon 1.',
 	downloadUrls: { font: '/fonts/SplatoonSquare.ttf', cipher: '/ciphers/SquareScriptCipher.png' },
 	credit: { font: '@ardnin_', cipher: '@MaidCactus, @rassicas' },
 	id: 0,

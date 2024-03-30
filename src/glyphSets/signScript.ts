@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const SignScript: GlyphSet = {
 	name: 'Sign Script',
 	font: 'SplatoonSign',
-	description: 'One of the earliest leads in Sign Script was on toilet paper packaging leading to the script\'s nickname, "Toilet Script". Using script found on cardboard packaging, large breakthroughs for this script were made during the Splatoon 3 Splatfest World Premiere. Sign script is also missing 4 glpyhs, the most out of any of the "deciphered" scripts.',
+	description: 'One of the earliest breakthroughs for Sign Script was on toilet paper packaging leading to the script\'s nickname, "Toilet Script". Using script found on cardboard packaging, large breakthroughs for this script occured during the Splatoon 3 Splatfest World Premiere. Sign script is also missing 4 glpyhs, the most among all deciphered scripts.',
 	downloadUrls: { font: '/fonts/SplatoonSign.ttf', cipher: '/ciphers/SignScriptCipher.png' },
 	credit: { font: '@ardnin_', cipher: '@ardnin_, @rassicas, @splattershot_jr' },
 	id: 7,

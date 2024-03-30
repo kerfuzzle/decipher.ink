@@ -2,7 +2,7 @@ import type { GlyphSet } from '../typings/glyphs';
 const SerifScript: GlyphSet = {
 	name: 'Serif Script',
 	font: 'SplatoonSerif',
-	description: 'Serif Script, characterised by its serifs, appears throughout series; most notatably on many of the sunken scrolls.',
+	description: 'Serif Script, characterised by its serifs, appears throughout the series; most notably on many of the sunken scrolls.',
 	downloadUrls: { font: '/fonts/SplatoonSerif.ttf', cipher: '/ciphers/SerifScriptCipher.png' },
 	credit: { font: '@ardnin_', cipher: '@ardnin_, @rassicas, @splattershot_jr' },
 	id: 1,
