@@ -71,10 +71,6 @@ const HalfmoonScript: GlyphSet = {
 			id: 15,
 			mappedCharacters: ['R'],
 		},
-		{
-			id: 16,
-			mappedCharacters: ['T'],
-		},
 	],
 };
 
