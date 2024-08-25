@@ -99,7 +99,7 @@ function openMenu() {
 	flex-wrap: wrap;
 	word-break: normal;
 	resize: horizontal;
-	min-width: min(120%, 100vw - 10px);
+	min-width: min(125%, 100vw - 10px);
 	max-width: min(400%, 100vw - 10px);
 	max-height: 20rem;
 	overflow-x: hidden;
