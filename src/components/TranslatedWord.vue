@@ -56,7 +56,7 @@ function openMenu() {
 			</div>
 		</div>
 		<div v-if="hasPermutations" :class="['permutation-list', { 'active' : menuOpen && props.hasPermutations && props.permutations.length > 1 }]">
-			<div style="font-size: 15px;">{{ props.permutations.length }} possible permutations</div>
+			<div style="font-size: 15px; width: 100%">{{ props.permutations.length }} possible permutations</div>
 			<div v-for="(permutation, index) in permutations" :key="index" @click="selectedPermutationIndex = index; menuOpen = false" class="permutation">
 				{{ permutation }}
 			</div>
@@ -74,12 +74,13 @@ function openMenu() {
 	position: relative;
 	word-break: break-all;
 	max-width: 100%;
+	border-radius: 10px;
+	transition: 0.25s background ease-in-out;
 }
 
 
 .word.has-permutations:hover {
 	border: 1px transparent;
-	border-radius: 10px;
 	background: rgba(54, 54, 54, 0.15);
 	cursor: pointer;
 }
@@ -93,10 +94,15 @@ function openMenu() {
 }
 
 .permutation-list {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 	word-break: normal;
-	min-width: 100%;
+	resize: horizontal;
+	min-width: min(125%, 100vw - 10px);
+	max-width: min(400%, 100vw - 10px);
 	max-height: 20rem;
-	overflow: hidden;
+	overflow-x: hidden;
 	overflow-y: scroll;
 	text-align: center;
 	position: absolute;
@@ -106,7 +112,7 @@ function openMenu() {
 	border-radius: 3px;
 	transform: translate3d(0, -30px, 0);
 	opacity: 0;
-	transition: 0.25s all ease-in-out;
+	transition: 0.25s transform ease-in-out, 0.25s opacity ease-in-out, 0.25s visibility ease-in-out;
 	visibility: hidden;
 	z-index: 2;
 }
@@ -119,8 +125,16 @@ function openMenu() {
 }
 
 .permutation {
+	height: min-content;
+	margin: 0 10px;
+	box-shadow: 0 1px 0 0 rgba(54, 54, 54, 0.15);
 	cursor: pointer;
 	font-size: 1rem;
+	transition: 0.1s box-shadow ease-in-out;
+}
+
+.permutation:hover {
+	box-shadow: 0 3px 0 0 rgb(58, 12, 205);
 }
 
 .character {
