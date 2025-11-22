@@ -2,14 +2,14 @@
 </script>
 
 <template>
-	<a href="https://twitter.com/splatoonloreink" target="_blank" rel="noopener noreferrer" class="card">
+	<a href="https://splatoonlore.ink/" target="_blank" rel="noopener noreferrer" class="card">
 		<img src="/SLILogo.webp"/>
 		<div class="title">
 			<div>
 				Partnered with <span class="SLITitle">Splatoon Lore Ink.</span>
 			</div>
 			<div class="subtitle">
-				Made by ardnin, coming soon, click here to find out more
+				Made by ardnin, click here to find out more!
 			</div>
 		</div>
 	</a>
