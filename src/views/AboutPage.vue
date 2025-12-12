@@ -2,6 +2,7 @@
 import SocialsBar from '../components/SocialsBar.vue';
 import SocialsItem from '../components/SocialsItem.vue';
 import IconTwitter from '../assets/icons/IconTwitter.vue';
+import IconBluesky from '../assets/icons/IconBluesky.vue';
 import IconGitHub from '../assets/icons/IconGitHub.vue';
 import IconGit from '../assets/icons/IconGit.vue';
 import IconTumblr from '../assets/icons/IconTumblr.vue';
@@ -22,16 +23,16 @@ import SLICard from '../components/SLICard.vue';
 		</div>
 	</div>
 	<SocialsBar class="socials">
-		<SocialsItem url="https://twitter.com/kerfuzzle_" name="@kerfuzzle_">
-			<IconTwitter/>
+		<SocialsItem url="https://bsky.app/profile/kerfuzzle.dev" name="Bluesky">
+			<IconBluesky/>
 		</SocialsItem>
-		<SocialsItem url="https://discord.com/users/569822515401195520" name="@kerfuzzle">
+		<SocialsItem url="https://discord.com/users/569822515401195520" name="Discord">
 			<IconDiscord/>
 		</SocialsItem>
-		<SocialsItem url="https://github.com/kerfuzzle" name="kerfuzzle">
+		<SocialsItem url="https://github.com/kerfuzzle" name="GitHub">
 			<IconGitHub/>
 		</SocialsItem>
-		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="repository">
+		<SocialsItem url="https://github.com/kerfuzzle/decipher.ink" name="Repository">
 			<IconGit/>
 		</SocialsItem>
 	</SocialsBar>
@@ -40,20 +41,29 @@ import SLICard from '../components/SLICard.vue';
 			The cool people that deciphered these scripts:
 		</div>
 		<SocialsBar class="socials">
-			<SocialsItem url="https://twitter.com/ardnin_" name="@ardnin_">
+			<SocialsItem url="https://bsky.app/profile/ardnin.splatoonlore.ink" name="ardnin">
+				<IconBluesky/>
+			</SocialsItem>
+			<SocialsItem url="https://bsky.app/profile/rassicas.splatoonlore.ink" name="rassicas">
+				<IconBluesky/>
+			</SocialsItem>
+			<SocialsItem url="https://twitter.com/cosmo_splt" name="cosmo_splt">
 				<IconTwitter/>
 			</SocialsItem>
-			<SocialsItem url="https://twitter.com/rassicas" name="@rassicas">
+			<SocialsItem url="https://bsky.app/profile/splattershot.bsky.social" name="splattershot_jr">
+				<IconBluesky/>
+			</SocialsItem>
+			<SocialsItem url="https://www.tumblr.com/guster-animations" name="guster-animations">
+				<IconTumblr/>
+			</SocialsItem>
+			<SocialsItem url="https://bsky.app/profile/plinkamoon.bsky.social" name="plinkamoon">
+				<IconBluesky/>
+			</SocialsItem>
+			<SocialsItem url="https://twitter.com/cack1e" name="cack1e">
 				<IconTwitter/>
 			</SocialsItem>
-			<SocialsItem url="https://twitter.com/cosmo_splt" name="@cosmo_splt">
-				<IconTwitter/>
-			</SocialsItem>
-			<SocialsItem url="https://twitter.com/splattershot_jr" name="@splattershot_jr">
-				<IconTwitter/>
-			</SocialsItem>
-			<SocialsItem url="https://twitter.com/cack1e" name="@cack1e">
-				<IconTwitter/>
+			<SocialsItem url="https://bsky.app/profile/magicalgirlfiaa.bsky.social" name="MagicalGirlFia">
+				<IconBluesky/>
 			</SocialsItem>
 			<SocialsItem url="https://jacebeleren.tumblr.com/" name="jacebeleren">
 				<IconTumblr/>
