@@ -46,6 +46,10 @@
 	font-family: SplatoonSquare;
 	src: url('/fonts/SplatoonSquare.woff2'), url('/fonts/SplatoonSquare.zopfli.woff'), url('/fonts/SplatoonSquare.ttf');
 }
+@font-face {
+	font-family: SplatoonSpire;
+	src: url('/fonts/SplatoonSpire.woff2'), url('/fonts/SplatoonSpire.zopfli.woff'), url('/fonts/SplatoonSpire.ttf');
+}
 
 
 body {

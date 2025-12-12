@@ -8,9 +8,10 @@ import { RunicScript } from './runicScript';
 import { HalfmoonScript } from './halfmoonScript';
 import { SignScript } from './signScript';
 import { AlternaScript } from './alternaScript';
+import { SpireScript } from './spireScript';
 
 const glyphSets = new Map<number, GlyphSet>();
-[SquareScript, SerifScript, BoldScript, RoundScript, BubbleScript, RunicScript, HalfmoonScript, SignScript, AlternaScript].forEach(glyphSet => {
+[SquareScript, SerifScript, BoldScript, RoundScript, BubbleScript, RunicScript, HalfmoonScript, SignScript, AlternaScript, SpireScript].forEach(glyphSet => {
 	glyphSets.set(glyphSet.id, glyphSet);
 });
 

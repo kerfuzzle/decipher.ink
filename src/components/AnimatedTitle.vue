@@ -7,7 +7,7 @@ const props = defineProps<{
 }>();
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const fonts = ['SplatoonAlterna', 'SplatoonBold', 'SplatoonBubble', 'SplatoonHalfmoon', 'SplatoonRunic', 'SplatoonSerif', 'SplatoonSign', 'SplatoonSquare'];
+const fonts = ['SplatoonAlterna', 'SplatoonBold', 'SplatoonBubble', 'SplatoonHalfmoon', 'SplatoonRunic', 'SplatoonSerif', 'SplatoonSign', 'SplatoonSquare', 'SplatoonSpire'];
 let id = 0;
 const titleLetters = ref(props.titleContent.split('').map(char => {
 	return { id: id++, char: char, font: 'Splatfont2' };
