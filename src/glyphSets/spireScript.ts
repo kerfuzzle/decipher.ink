@@ -4,7 +4,7 @@ const SpireScript: GlyphSet = {
 	font: 'SplatoonSpire',
 	description: 'Spire Script was introduced in Side Order. It is mostly used for gibberish so was deciphered by comparing strings of gibberish with other solved scripts. It has only 15 unique glyphs, the lowest out of all of the scripts.',
 	downloadUrls: { font: '/fonts/SplatoonSpire.ttf', cipher: '/ciphers/SpireScriptCipher.png' },
-	credit: { font: '@cack1e', cipher: '@plinkamoon, @cack1e, @kerfuzzle.dev, @MagicalGirlFia, @diam.bsky.social' },
+	credit: { font: '@cack1e', cipher: '@guster-animations, @splattershot_jr, @plinkamoon, @cack1e, @kerfuzzle.dev, @MagicalGirlFia, @diam.bsky.social' },
 	id: 9,
 	glyphs: [
 		{
